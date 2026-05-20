@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -595,7 +594,7 @@
       </div>
     </div>
     <div class="form-container">
-      <iframe src="https://forms.cloud.microsoft/r/qbsQhAfgMX" title="Contact SolvIT CR" allowfullscreen></iframe>
+      <iframe id="contact-form" src="https://forms.cloud.microsoft/r/qbsQhAfgMX" title="Contact SolvIT CR" allowfullscreen scrolling="no" tabindex="-1"></iframe>
     </div>
   </div>
 </section>
@@ -614,5 +613,19 @@
   <p>© 2025 SolvIT CR · All rights reserved</p>
 </footer>
 
+<script>
+  // Forzar scroll al top al cargar
+  if (history.scrollRestoration) history.scrollRestoration = "manual";
+  window.addEventListener("load", function() { window.scrollTo(0, 0); });
+  // Evitar que el iframe robe el foco y cause scroll
+  document.addEventListener("DOMContentLoaded", function() {
+    var iframe = document.getElementById("contact-form");
+    if (iframe) {
+      iframe.addEventListener("load", function() {
+        window.scrollTo(0, 0);
+      });
+    }
+  });
+</script>
 </body>
 </html>
