@@ -1,16 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-<!-- ── SEO PRIMARIO ── -->
 <title>SolvIT CR — Bilingual IT Support for English Speakers in Costa Rica</title>
 <meta name="description" content="Professional bilingual IT support (English/Spanish) for English-speaking residents in Costa Rica's GAM. On-site & remote help in Escazú, Santa Ana, San José, Heredia and Alajuela." />
 <meta name="keywords" content="bilingual IT support Costa Rica, English speaking IT support San José, computer help Escazú, IT support expats Costa Rica, tech support English Costa Rica, soporte técnico bilingüe Costa Rica, IT support GAM Costa Rica, computer repair Escazú, WiFi setup Costa Rica, cybersecurity Costa Rica" />
 <link rel="canonical" href="https://www.solvitcr.com/" />
-
-<!-- ── OPEN GRAPH (Facebook / WhatsApp previews) ── -->
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://www.solvitcr.com/" />
 <meta property="og:title" content="SolvIT CR — Bilingual IT Support for English Speakers in Costa Rica" />
@@ -18,27 +14,18 @@
 <meta property="og:image" content="https://www.solvitcr.com/og-image.png" />
 <meta property="og:locale" content="en_US" />
 <meta property="og:site_name" content="SolvIT CR" />
-
-<!-- ── TWITTER CARD ── -->
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="SolvIT CR — Bilingual IT Support in Costa Rica" />
-<meta name="twitter:description" content="Professional English-language IT support for residents living in Costa Rica's GAM." />
-
-<!-- ── GEO / LOCAL SEO ── -->
 <meta name="geo.region" content="CR-SJ" />
 <meta name="geo.placename" content="San José, Costa Rica" />
-
-<!-- ── SCHEMA.ORG LOCAL BUSINESS ── -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "name": "SolvIT CR",
-  "description": "Bilingual IT support (English/Spanish) for English-speaking residents in Costa Rica's Greater Metropolitan Area. On-site and remote tech support.",
+  "description": "Bilingual IT support (English/Spanish) for English-speaking residents in Costa Rica's Greater Metropolitan Area.",
   "url": "https://www.solvitcr.com",
   "telephone": "+50686300037",
   "email": "hello@solvitcr.com",
-  "image": "https://www.solvitcr.com/og-image.png",
   "priceRange": "$$",
   "currenciesAccepted": "USD, CRC",
   "paymentAccepted": "Cash, Bank Transfer, SINPE",
@@ -51,22 +38,13 @@
   ],
   "serviceType": ["Computer Repair", "Network Setup", "Cybersecurity", "Cloud Services", "IT Support"],
   "knowsLanguage": ["en", "es"],
-  "address": {
-    "@type": "PostalAddress",
-    "addressCountry": "CR",
-    "addressRegion": "San José"
-  },
-  "sameAs": [
-    "https://facebook.com/solvitcr"
-  ]
+  "address": {"@type": "PostalAddress", "addressCountry": "CR", "addressRegion": "San José"},
+  "sameAs": ["https://facebook.com/solvitcr"]
 }
 </script>
-
-<!-- ── FONTS ── -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
-
 <style>
   :root {
     --navy:        #0b2540;
@@ -74,454 +52,255 @@
     --navy-light:  #132d52;
     --green:       #00c97a;
     --green-dark:  #00a362;
-    --green-glow:  rgba(0,201,122,0.15);
     --white:       #ffffff;
-    --off-white:   #f4f7fb;
     --text-muted:  #8a9bb0;
     --border:      rgba(255,255,255,0.08);
     --border-green:rgba(0,201,122,0.25);
   }
-
-  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
+  *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
   html { scroll-behavior: smooth; }
+  body { font-family:'DM Sans',sans-serif; background:var(--navy); color:var(--white); overflow-x:hidden; -webkit-font-smoothing:antialiased; }
 
-  body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--navy);
-    color: var(--white);
-    overflow-x: hidden;
-    -webkit-font-smoothing: antialiased;
+  /* ── LANG: hide/show ── */
+  [data-lang="en"] .es { display: none !important; }
+  [data-lang="es"] .en { display: none !important; }
+
+  /* ── LANG SWITCHER ── */
+  .lang-switcher {
+    display: flex; align-items: center; gap: 4px;
+    background: rgba(255,255,255,0.06); border: 1px solid var(--border);
+    border-radius: 50px; padding: 4px; flex-shrink: 0;
   }
+  .lang-btn {
+    background: none; border: none; cursor: pointer;
+    font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 600;
+    color: var(--text-muted); padding: 5px 12px; border-radius: 50px;
+    transition: all 0.2s; letter-spacing: 0.3px;
+  }
+  .lang-btn.active {
+    background: var(--green); color: var(--navy);
+  }
+  .lang-btn:hover:not(.active) { color: var(--white); }
 
   /* ── NAV ── */
   nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    position: fixed; top:0; left:0; right:0; z-index:100;
     display: flex; align-items: center; justify-content: space-between;
-    padding: 16px 6%;
+    padding: 14px 6%;
     background: rgba(11,37,64,0.94);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     border-bottom: 1px solid var(--border);
     animation: fadeDown 0.6s ease both;
+    gap: 16px;
   }
-
   .nav-logo {
-    display: flex; align-items: center; gap: 10px;
-    font-family: 'Syne', sans-serif; font-weight: 800; font-size: 20px;
-    text-decoration: none; color: var(--white); letter-spacing: -0.3px;
+    display:flex; align-items:center; gap:10px;
+    font-family:'Syne',sans-serif; font-weight:800; font-size:20px;
+    text-decoration:none; color:var(--white); letter-spacing:-0.3px; flex-shrink:0;
   }
-  .nav-logo span { color: var(--green); }
-
+  .nav-logo span { color:var(--green); }
   .logo-icon {
-    width: 34px; height: 34px; background: var(--green);
-    border-radius: 8px; display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0;
+    width:34px; height:34px; background:var(--green);
+    border-radius:8px; display:flex; align-items:center; justify-content:center; flex-shrink:0;
   }
-  .logo-icon svg { width: 18px; height: 18px; }
-
-  .nav-links { display: flex; align-items: center; gap: 28px; }
-  .nav-links a {
-    color: var(--text-muted); text-decoration: none;
-    font-size: 14px; font-weight: 400; transition: color 0.2s;
-  }
-  .nav-links a:hover { color: var(--white); }
+  .logo-icon svg { width:18px; height:18px; }
+  .nav-right { display:flex; align-items:center; gap:20px; }
+  .nav-links { display:flex; align-items:center; gap:24px; }
+  .nav-links a { color:var(--text-muted); text-decoration:none; font-size:14px; font-weight:400; transition:color 0.2s; white-space:nowrap; }
+  .nav-links a:hover { color:var(--white); }
   .nav-cta {
-    background: var(--green); color: var(--navy) !important;
-    font-weight: 600 !important; padding: 9px 22px;
-    border-radius: 50px; transition: background 0.2s, transform 0.2s !important;
+    background:var(--green); color:var(--navy) !important;
+    font-weight:600 !important; padding:9px 20px;
+    border-radius:50px; transition:background 0.2s,transform 0.2s !important;
+    white-space:nowrap;
   }
-  .nav-cta:hover { background: var(--green-dark) !important; transform: translateY(-1px); }
+  .nav-cta:hover { background:var(--green-dark) !important; transform:translateY(-1px); }
 
   /* ── HERO ── */
   .hero {
-    min-height: 100vh;
-    display: flex; flex-direction: column; justify-content: center;
-    padding: 120px 6% 80px;
-    position: relative; overflow: hidden;
+    min-height:100vh; display:flex; flex-direction:column; justify-content:center;
+    padding:120px 6% 80px; position:relative; overflow:hidden;
   }
-
   .hero-grid {
-    position: absolute; inset: 0; opacity: 0.035;
-    background-image:
-      linear-gradient(var(--green) 1px, transparent 1px),
-      linear-gradient(90deg, var(--green) 1px, transparent 1px);
-    background-size: 60px 60px;
-    pointer-events: none;
+    position:absolute; inset:0; opacity:0.035;
+    background-image: linear-gradient(var(--green) 1px,transparent 1px), linear-gradient(90deg,var(--green) 1px,transparent 1px);
+    background-size:60px 60px; pointer-events:none;
   }
-
   .hero-glow {
-    position: absolute; top: 10%; right: -15%;
-    width: 700px; height: 700px; border-radius: 50%;
-    background: radial-gradient(circle, rgba(0,201,122,0.10) 0%, transparent 65%);
-    pointer-events: none;
+    position:absolute; top:10%; right:-15%; width:700px; height:700px; border-radius:50%;
+    background:radial-gradient(circle,rgba(0,201,122,0.10) 0%,transparent 65%); pointer-events:none;
   }
   .hero-glow-2 {
-    position: absolute; bottom: -10%; left: -10%;
-    width: 500px; height: 500px; border-radius: 50%;
-    background: radial-gradient(circle, rgba(15,52,96,0.6) 0%, transparent 70%);
-    pointer-events: none;
+    position:absolute; bottom:-10%; left:-10%; width:500px; height:500px; border-radius:50%;
+    background:radial-gradient(circle,rgba(15,52,96,0.6) 0%,transparent 70%); pointer-events:none;
   }
-
   .hero-badge {
-    display: inline-flex; align-items: center; gap: 8px;
-    background: rgba(0,201,122,0.10); border: 1px solid var(--border-green);
-    border-radius: 50px; padding: 6px 16px; margin-bottom: 28px;
-    font-size: 13px; color: var(--green); font-weight: 500;
-    width: fit-content;
-    animation: fadeUp 0.7s 0.2s ease both;
+    display:inline-flex; align-items:center; gap:8px;
+    background:rgba(0,201,122,0.10); border:1px solid var(--border-green);
+    border-radius:50px; padding:6px 16px; margin-bottom:28px;
+    font-size:13px; color:var(--green); font-weight:500; width:fit-content;
+    animation:fadeUp 0.7s 0.2s ease both;
   }
   .hero-badge::before {
-    content: ''; width: 7px; height: 7px; border-radius: 50%;
-    background: var(--green); animation: pulse 2s infinite; flex-shrink: 0;
+    content:''; width:7px; height:7px; border-radius:50%;
+    background:var(--green); animation:pulse 2s infinite; flex-shrink:0;
   }
-
   .hero h1 {
-    font-family: 'Syne', sans-serif;
-    font-size: clamp(36px, 5.5vw, 68px);
-    font-weight: 800; line-height: 1.06; letter-spacing: -1px;
-    max-width: 820px; margin-bottom: 24px;
-    animation: fadeUp 0.7s 0.35s ease both;
+    font-family:'Syne',sans-serif; font-size:clamp(36px,5.5vw,68px);
+    font-weight:800; line-height:1.06; letter-spacing:-1px;
+    max-width:820px; margin-bottom:24px; animation:fadeUp 0.7s 0.35s ease both;
   }
-  .hero h1 em { color: var(--green); font-style: normal; }
-
+  .hero h1 em { color:var(--green); font-style:normal; }
   .hero p {
-    font-size: 18px; color: var(--text-muted);
-    max-width: 540px; line-height: 1.75;
-    margin-bottom: 40px; font-weight: 300;
-    animation: fadeUp 0.7s 0.5s ease both;
+    font-size:18px; color:var(--text-muted); max-width:540px; line-height:1.75;
+    margin-bottom:40px; font-weight:300; animation:fadeUp 0.7s 0.5s ease both;
   }
-
-  .hero-btns {
-    display: flex; gap: 14px; flex-wrap: wrap;
-    animation: fadeUp 0.7s 0.65s ease both;
-  }
-
+  .hero-btns { display:flex; gap:14px; flex-wrap:wrap; animation:fadeUp 0.7s 0.65s ease both; }
   .btn-primary {
-    display: inline-flex; align-items: center; gap: 8px;
-    background: var(--green); color: var(--navy);
-    font-family: 'DM Sans', sans-serif; font-weight: 600;
-    font-size: 15px; padding: 14px 28px; border-radius: 50px;
-    text-decoration: none; transition: all 0.2s;
+    display:inline-flex; align-items:center; gap:8px;
+    background:var(--green); color:var(--navy);
+    font-family:'DM Sans',sans-serif; font-weight:600; font-size:15px;
+    padding:14px 28px; border-radius:50px; text-decoration:none; transition:all 0.2s;
   }
-  .btn-primary:hover { background: var(--green-dark); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,201,122,0.25); }
-
+  .btn-primary:hover { background:var(--green-dark); transform:translateY(-2px); box-shadow:0 8px 24px rgba(0,201,122,0.25); }
   .btn-outline {
-    display: inline-flex; align-items: center; gap: 8px;
-    border: 1px solid rgba(255,255,255,0.2); color: var(--white);
-    font-size: 15px; font-weight: 400; padding: 14px 28px; border-radius: 50px;
-    text-decoration: none; transition: all 0.2s;
+    display:inline-flex; align-items:center; gap:8px;
+    border:1px solid rgba(255,255,255,0.2); color:var(--white);
+    font-size:15px; font-weight:400; padding:14px 28px; border-radius:50px;
+    text-decoration:none; transition:all 0.2s;
   }
-  .btn-outline:hover { border-color: var(--green); color: var(--green); }
-
+  .btn-outline:hover { border-color:var(--green); color:var(--green); }
   .hero-zones {
-    margin-top: 56px;
-    display: flex; gap: 10px; flex-wrap: wrap; align-items: center;
-    animation: fadeUp 0.7s 0.8s ease both;
+    margin-top:56px; display:flex; gap:10px; flex-wrap:wrap; align-items:center;
+    animation:fadeUp 0.7s 0.8s ease both;
   }
-  .hero-zones > span { font-size: 12px; color: var(--text-muted); margin-right: 2px; }
+  .hero-zones > span { font-size:12px; color:var(--text-muted); margin-right:2px; }
   .zone-tag {
-    background: rgba(255,255,255,0.05); border: 1px solid var(--border);
-    border-radius: 50px; padding: 5px 14px;
-    font-size: 12px; color: #b0c4d8; transition: border-color 0.2s, color 0.2s;
+    background:rgba(255,255,255,0.05); border:1px solid var(--border);
+    border-radius:50px; padding:5px 14px; font-size:12px; color:#b0c4d8;
+    transition:border-color 0.2s,color 0.2s;
   }
-  .zone-tag:hover { border-color: var(--border-green); color: var(--green); }
+  .zone-tag:hover { border-color:var(--border-green); color:var(--green); }
 
   /* ── TRUST STRIP ── */
   .trust {
-    background: rgba(255,255,255,0.025);
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-    padding: 26px 6%;
-    display: flex; align-items: center; justify-content: center;
-    gap: 48px; flex-wrap: wrap;
+    background:rgba(255,255,255,0.025);
+    border-top:1px solid var(--border); border-bottom:1px solid var(--border);
+    padding:26px 6%; display:flex; align-items:center; justify-content:center;
+    gap:48px; flex-wrap:wrap;
   }
-  .trust-item {
-    display: flex; align-items: center; gap: 10px;
-    font-size: 14px; color: var(--text-muted);
-  }
-  .trust-item svg { color: var(--green); flex-shrink: 0; }
-  .trust-item strong { color: var(--white); font-weight: 500; }
+  .trust-item { display:flex; align-items:center; gap:10px; font-size:14px; color:var(--text-muted); }
+  .trust-item svg { color:var(--green); flex-shrink:0; }
+  .trust-item strong { color:var(--white); font-weight:500; }
 
-  /* ── SECTION BASE ── */
-  section { padding: 96px 6%; }
-
-  .section-label {
-    font-size: 11px; font-weight: 600; letter-spacing: 2.5px;
-    text-transform: uppercase; color: var(--green);
-    margin-bottom: 14px;
-  }
-  .section-title {
-    font-family: 'Syne', sans-serif; font-size: clamp(26px, 3.8vw, 42px);
-    font-weight: 700; line-height: 1.15; letter-spacing: -0.5px;
-    max-width: 600px; margin-bottom: 16px;
-  }
-  .section-sub {
-    font-size: 16px; color: var(--text-muted); max-width: 520px;
-    line-height: 1.75; margin-bottom: 56px; font-weight: 300;
-  }
+  /* ── SECTIONS ── */
+  section { padding:96px 6%; }
+  .section-label { font-size:11px; font-weight:600; letter-spacing:2.5px; text-transform:uppercase; color:var(--green); margin-bottom:14px; }
+  .section-title { font-family:'Syne',sans-serif; font-size:clamp(26px,3.8vw,42px); font-weight:700; line-height:1.15; letter-spacing:-0.5px; max-width:600px; margin-bottom:16px; }
+  .section-sub { font-size:16px; color:var(--text-muted); max-width:520px; line-height:1.75; margin-bottom:56px; font-weight:300; }
 
   /* ── SERVICES ── */
-  #services { background: var(--navy); }
-
-  .services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-    gap: 20px;
-  }
-
+  #services { background:var(--navy); }
+  .services-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(270px,1fr)); gap:20px; }
   .service-card {
-    background: rgba(255,255,255,0.03);
-    border: 1px solid var(--border);
-    border-radius: 18px; padding: 32px 28px;
-    transition: all 0.3s ease;
-    position: relative; overflow: hidden;
+    background:rgba(255,255,255,0.03); border:1px solid var(--border);
+    border-radius:18px; padding:32px 28px; transition:all 0.3s ease;
+    position:relative; overflow:hidden;
   }
   .service-card::before {
-    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
-    background: linear-gradient(90deg, var(--green), var(--green-dark));
-    transform: scaleX(0); transform-origin: left; transition: transform 0.35s ease;
+    content:''; position:absolute; top:0; left:0; right:0; height:2px;
+    background:linear-gradient(90deg,var(--green),var(--green-dark));
+    transform:scaleX(0); transform-origin:left; transition:transform 0.35s ease;
   }
-  .service-card:hover {
-    border-color: var(--border-green);
-    background: rgba(0,201,122,0.04);
-    transform: translateY(-5px);
-    box-shadow: 0 12px 40px rgba(0,0,0,0.2);
-  }
-  .service-card:hover::before { transform: scaleX(1); }
-
-  .service-icon {
-    width: 48px; height: 48px; border-radius: 12px;
-    background: rgba(0,201,122,0.1); display: flex;
-    align-items: center; justify-content: center; margin-bottom: 20px;
-    transition: background 0.3s;
-  }
-  .service-card:hover .service-icon { background: rgba(0,201,122,0.18); }
-  .service-icon svg { width: 22px; height: 22px; stroke: var(--green); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
-
-  .service-card h3 {
-    font-family: 'Syne', sans-serif; font-size: 17px;
-    font-weight: 600; margin-bottom: 10px; letter-spacing: -0.2px;
-  }
-  .service-card p { font-size: 14px; color: var(--text-muted); line-height: 1.7; }
-
-  /* ── FAQ ── */
-  #faq { background: var(--navy-light); }
-  .faq-grid { max-width: 760px; display: flex; flex-direction: column; gap: 14px; }
-
-  .faq-item {
-    background: rgba(255,255,255,0.03); border: 1px solid var(--border);
-    border-radius: 14px; overflow: hidden;
-  }
-  .faq-q {
-    width: 100%; background: none; border: none; color: var(--white);
-    font-family: 'Syne', sans-serif; font-size: 15px; font-weight: 600;
-    text-align: left; padding: 22px 24px; cursor: pointer;
-    display: flex; justify-content: space-between; align-items: center; gap: 16px;
-    transition: color 0.2s;
-  }
-  .faq-q:hover { color: var(--green); }
-  .faq-icon { color: var(--green); font-size: 20px; flex-shrink: 0; transition: transform 0.3s; }
-  .faq-item.open .faq-icon { transform: rotate(45deg); }
-  .faq-a {
-    font-size: 14px; color: var(--text-muted); line-height: 1.75;
-    max-height: 0; overflow: hidden;
-    padding: 0 24px; transition: max-height 0.4s ease, padding 0.3s ease;
-  }
-  .faq-item.open .faq-a { max-height: 300px; padding: 0 24px 22px; }
-
-  /* ── ABOUT ── */
-  #about { background: var(--navy); }
-
-  .about-grid {
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 64px; align-items: center;
-  }
-
-  .about-stats {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 40px;
-  }
-  .stat-card {
-    background: rgba(255,255,255,0.04); border: 1px solid var(--border);
-    border-radius: 14px; padding: 22px;
-    transition: border-color 0.2s;
-  }
-  .stat-card:hover { border-color: var(--border-green); }
-  .stat-num {
-    font-family: 'Syne', sans-serif; font-size: 30px;
-    font-weight: 800; color: var(--green);
-  }
-  .stat-label { font-size: 12px; color: var(--text-muted); margin-top: 4px; line-height: 1.5; }
-
-  .about-right { display: flex; flex-direction: column; gap: 14px; }
-
-  .about-point {
-    display: flex; gap: 16px; align-items: flex-start;
-    background: rgba(255,255,255,0.025); border: 1px solid var(--border);
-    border-radius: 14px; padding: 20px;
-    transition: border-color 0.2s, background 0.2s;
-  }
-  .about-point:hover { border-color: var(--border-green); background: rgba(0,201,122,0.03); }
-
-  .about-point-icon {
-    width: 40px; height: 40px; border-radius: 10px;
-    background: rgba(0,201,122,0.1); display: flex;
-    align-items: center; justify-content: center; flex-shrink: 0;
-  }
-  .about-point-icon svg { width: 20px; height: 20px; stroke: var(--green); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
-
-  .about-point h4 {
-    font-family: 'Syne', sans-serif; font-size: 14px;
-    font-weight: 600; margin-bottom: 4px;
-  }
-  .about-point p { font-size: 13px; color: var(--text-muted); line-height: 1.65; }
-
-  /* ── CONTACT ── */
-  #contact { background: rgba(255,255,255,0.015); }
-
-  .contact-wrapper { max-width: 860px; margin: 0 auto; }
-
-  .contact-info {
-    display: grid; grid-template-columns: repeat(3,1fr); gap: 14px;
-    margin-bottom: 36px;
-  }
-  .contact-card {
-    background: rgba(255,255,255,0.04); border: 1px solid var(--border);
-    border-radius: 14px; padding: 22px; text-align: center;
-    transition: border-color 0.2s, transform 0.2s;
-    text-decoration: none; color: inherit; display: block;
-  }
-  .contact-card:hover { border-color: var(--border-green); transform: translateY(-3px); }
-  .contact-card svg { width: 22px; height: 22px; stroke: var(--green); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; margin-bottom: 10px; }
-  .contact-card h4 { font-size: 13px; font-weight: 600; margin-bottom: 4px; }
-  .contact-card p { font-size: 12px; color: var(--text-muted); }
-
-  .form-container {
-    background: rgba(255,255,255,0.03); border: 1px solid var(--border);
-    border-radius: 20px; overflow: hidden;
-  }
-  .form-container iframe {
-    width: 100%; min-height: 620px; border: none; display: block;
-    background: transparent;
-  }
-
-  /* ── FOOTER ── */
-  footer {
-    background: rgba(0,0,0,0.35);
-    border-top: 1px solid var(--border);
-    padding: 40px 6%;
-    display: flex; align-items: center; justify-content: space-between;
-    flex-wrap: wrap; gap: 20px;
-  }
-  .footer-logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 18px; letter-spacing: -0.3px; }
-  .footer-logo span { color: var(--green); }
-  footer p { font-size: 13px; color: var(--text-muted); }
-  .footer-links { display: flex; gap: 20px; }
-  .footer-links a {
-    font-size: 13px; color: var(--text-muted);
-    text-decoration: none; transition: color 0.2s;
-  }
-  .footer-links a:hover { color: var(--green); }
-
-  /* ── ANIMATIONS ── */
-  @keyframes fadeDown {
-    from { opacity: 0; transform: translateY(-16px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(24px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-  @keyframes pulse {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50%       { opacity: 0.5; transform: scale(0.8); }
-  }
-
-  /* ── RESPONSIVE ── */
-  @media (max-width: 768px) {
-    .nav-links { display: none; }
-    .about-grid { grid-template-columns: 1fr; gap: 40px; }
-    .contact-info { grid-template-columns: 1fr; }
-    .trust { gap: 24px; justify-content: flex-start; }
-    .hero h1 { font-size: 34px; letter-spacing: -0.5px; }
-    .hero p { font-size: 16px; }
-    section { padding: 72px 5%; }
-    .services-grid { grid-template-columns: 1fr; }
-  }
+  .service-card:hover { border-color:var(--border-green); background:rgba(0,201,122,0.04); transform:translateY(-5px); box-shadow:0 12px 40px rgba(0,0,0,0.2); }
+  .service-card:hover::before { transform:scaleX(1); }
+  .service-icon { width:48px; height:48px; border-radius:12px; background:rgba(0,201,122,0.1); display:flex; align-items:center; justify-content:center; margin-bottom:20px; transition:background 0.3s; }
+  .service-card:hover .service-icon { background:rgba(0,201,122,0.18); }
+  .service-icon svg { width:22px; height:22px; stroke:var(--green); fill:none; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+  .service-card h3 { font-family:'Syne',sans-serif; font-size:17px; font-weight:600; margin-bottom:10px; letter-spacing:-0.2px; }
+  .service-card p { font-size:14px; color:var(--text-muted); line-height:1.7; }
 
   /* ── TOP SERVICES ── */
-  #top-services { background: var(--navy-light); }
+  #top-services { background:var(--navy-light); }
+  .ts-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:24px; }
+  .ts-category { background:rgba(255,255,255,0.03); border:1px solid var(--border); border-radius:18px; padding:28px; transition:border-color 0.3s; }
+  .ts-category:hover { border-color:var(--border-green); }
+  .ts-cat-header { display:flex; align-items:center; gap:14px; margin-bottom:24px; padding-bottom:20px; border-bottom:1px solid var(--border); }
+  .ts-cat-icon { width:44px; height:44px; border-radius:12px; background:rgba(0,201,122,0.1); display:flex; align-items:center; justify-content:center; flex-shrink:0; color:var(--green); }
+  .ts-cat-icon svg { width:22px; height:22px; }
+  .ts-cat-label { font-family:'Syne',sans-serif; font-size:16px; font-weight:700; letter-spacing:-0.2px; }
+  .ts-list { list-style:none; display:flex; flex-direction:column; gap:20px; }
+  .ts-list li { display:flex; gap:16px; align-items:flex-start; }
+  .ts-num { font-family:'Syne',sans-serif; font-size:11px; font-weight:700; color:var(--green); letter-spacing:1px; background:rgba(0,201,122,0.1); border-radius:6px; padding:3px 7px; flex-shrink:0; margin-top:2px; }
+  .ts-list strong { display:block; font-family:'Syne',sans-serif; font-size:14px; font-weight:600; margin-bottom:5px; }
+  .ts-list p { font-size:13px; color:var(--text-muted); line-height:1.65; }
 
-  .ts-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 24px;
+  /* ── FAQ ── */
+  #faq { background:var(--navy-light); }
+  .faq-grid { max-width:760px; display:flex; flex-direction:column; gap:14px; }
+  .faq-item { background:rgba(255,255,255,0.03); border:1px solid var(--border); border-radius:14px; overflow:hidden; }
+  .faq-q { width:100%; background:none; border:none; color:var(--white); font-family:'Syne',sans-serif; font-size:15px; font-weight:600; text-align:left; padding:22px 24px; cursor:pointer; display:flex; justify-content:space-between; align-items:center; gap:16px; transition:color 0.2s; }
+  .faq-q:hover { color:var(--green); }
+  .faq-icon { color:var(--green); font-size:20px; flex-shrink:0; transition:transform 0.3s; }
+  .faq-item.open .faq-icon { transform:rotate(45deg); }
+  .faq-a { font-size:14px; color:var(--text-muted); line-height:1.75; max-height:0; overflow:hidden; padding:0 24px; transition:max-height 0.4s ease,padding 0.3s ease; }
+  .faq-item.open .faq-a { max-height:300px; padding:0 24px 22px; }
+
+  /* ── ABOUT ── */
+  #about { background:var(--navy); }
+  .about-grid { display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center; }
+  .about-stats { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:40px; }
+  .stat-card { background:rgba(255,255,255,0.04); border:1px solid var(--border); border-radius:14px; padding:22px; transition:border-color 0.2s; }
+  .stat-card:hover { border-color:var(--border-green); }
+  .stat-num { font-family:'Syne',sans-serif; font-size:30px; font-weight:800; color:var(--green); }
+  .stat-label { font-size:12px; color:var(--text-muted); margin-top:4px; line-height:1.5; }
+  .about-right { display:flex; flex-direction:column; gap:14px; }
+  .about-point { display:flex; gap:16px; align-items:flex-start; background:rgba(255,255,255,0.025); border:1px solid var(--border); border-radius:14px; padding:20px; transition:border-color 0.2s,background 0.2s; }
+  .about-point:hover { border-color:var(--border-green); background:rgba(0,201,122,0.03); }
+  .about-point-icon { width:40px; height:40px; border-radius:10px; background:rgba(0,201,122,0.1); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .about-point-icon svg { width:20px; height:20px; stroke:var(--green); fill:none; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+  .about-point h4 { font-family:'Syne',sans-serif; font-size:14px; font-weight:600; margin-bottom:4px; }
+  .about-point p { font-size:13px; color:var(--text-muted); line-height:1.65; }
+
+  /* ── CONTACT ── */
+  #contact { background:rgba(255,255,255,0.015); }
+  .contact-wrapper { max-width:860px; margin:0 auto; }
+  .contact-info { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-bottom:36px; }
+  .contact-card { background:rgba(255,255,255,0.04); border:1px solid var(--border); border-radius:14px; padding:22px; text-align:center; transition:border-color 0.2s,transform 0.2s; text-decoration:none; color:inherit; display:block; }
+  .contact-card:hover { border-color:var(--border-green); transform:translateY(-3px); }
+  .contact-card svg { width:22px; height:22px; stroke:var(--green); fill:none; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; margin-bottom:10px; }
+  .contact-card h4 { font-size:13px; font-weight:600; margin-bottom:4px; }
+  .contact-card p { font-size:12px; color:var(--text-muted); }
+  .form-container { background:rgba(255,255,255,0.03); border:1px solid var(--border); border-radius:20px; overflow:hidden; }
+  .form-container iframe { width:100%; min-height:620px; border:none; display:block; background:transparent; }
+
+  /* ── FOOTER ── */
+  footer { background:rgba(0,0,0,0.35); border-top:1px solid var(--border); padding:40px 6%; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:20px; }
+  .footer-logo { font-family:'Syne',sans-serif; font-weight:800; font-size:18px; letter-spacing:-0.3px; }
+  .footer-logo span { color:var(--green); }
+  footer p { font-size:13px; color:var(--text-muted); }
+  .footer-links { display:flex; gap:20px; }
+  .footer-links a { font-size:13px; color:var(--text-muted); text-decoration:none; transition:color 0.2s; }
+  .footer-links a:hover { color:var(--green); }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeDown { from{opacity:0;transform:translateY(-16px)} to{opacity:1;transform:translateY(0)} }
+  @keyframes fadeUp   { from{opacity:0;transform:translateY(24px)}  to{opacity:1;transform:translateY(0)} }
+  @keyframes pulse    { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(0.8)} }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width:768px) {
+    .nav-links { display:none; }
+    .about-grid { grid-template-columns:1fr; gap:40px; }
+    .contact-info { grid-template-columns:1fr; }
+    .trust { gap:24px; justify-content:flex-start; }
+    .hero h1 { font-size:34px; letter-spacing:-0.5px; }
+    .hero p { font-size:16px; }
+    section { padding:72px 5%; }
+    .services-grid { grid-template-columns:1fr; }
+    .ts-grid { grid-template-columns:1fr; }
   }
-
-  .ts-category {
-    background: rgba(255,255,255,0.03);
-    border: 1px solid var(--border);
-    border-radius: 18px;
-    padding: 28px;
-    transition: border-color 0.3s;
-  }
-  .ts-category:hover { border-color: var(--border-green); }
-
-  .ts-cat-header {
-    display: flex; align-items: center; gap: 14px;
-    margin-bottom: 24px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid var(--border);
-  }
-
-  .ts-cat-icon {
-    width: 44px; height: 44px; border-radius: 12px;
-    background: rgba(0,201,122,0.1);
-    display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0; color: var(--green);
-  }
-  .ts-cat-icon svg { width: 22px; height: 22px; }
-
-  .ts-cat-label {
-    font-family: 'Syne', sans-serif;
-    font-size: 16px; font-weight: 700;
-    letter-spacing: -0.2px;
-  }
-
-  .ts-list {
-    list-style: none;
-    display: flex; flex-direction: column; gap: 20px;
-  }
-
-  .ts-list li {
-    display: flex; gap: 16px; align-items: flex-start;
-  }
-
-  .ts-num {
-    font-family: 'Syne', sans-serif;
-    font-size: 11px; font-weight: 700;
-    color: var(--green); letter-spacing: 1px;
-    background: rgba(0,201,122,0.1);
-    border-radius: 6px; padding: 3px 7px;
-    flex-shrink: 0; margin-top: 2px;
-  }
-
-  .ts-list strong {
-    display: block;
-    font-family: 'Syne', sans-serif;
-    font-size: 14px; font-weight: 600;
-    margin-bottom: 5px;
-  }
-
-  .ts-list p {
-    font-size: 13px; color: var(--text-muted);
-    line-height: 1.65;
-  }
-
-  @media (max-width: 768px) {
-    .ts-grid { grid-template-columns: 1fr; }
-  }
-
 </style>
 </head>
 <body>
@@ -530,38 +309,59 @@
 <nav aria-label="Main navigation">
   <a href="#" class="nav-logo" aria-label="SolvIT CR Home">
     <div class="logo-icon">
-      <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <polyline points="20 6 9 17 4 12"/>
-      </svg>
+      <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
     </div>
     Solv<span>IT</span> CR
   </a>
-  <div class="nav-links">
-    <a href="#services">Services</a>
-    <a href="#top-services">Top 10</a>
-    <a href="#faq">FAQ</a>
-    <a href="#about">About</a>
-    <a href="#contact" class="nav-cta">Get Help Now</a>
+  <div class="nav-right">
+    <div class="nav-links">
+      <a href="#services"     class="en">Services</a>
+      <a href="#services"     class="es">Servicios</a>
+      <a href="#top-services" class="en">Top 10</a>
+      <a href="#top-services" class="es">Top 10</a>
+      <a href="#faq"          class="en">FAQ</a>
+      <a href="#faq"          class="es">FAQ</a>
+      <a href="#about"        class="en">About</a>
+      <a href="#about"        class="es">Nosotros</a>
+      <a href="#contact"      class="nav-cta en">Get Help Now</a>
+      <a href="#contact"      class="nav-cta es">Contáctenos</a>
+    </div>
+    <div class="lang-switcher" role="group" aria-label="Language selector">
+      <button class="lang-btn active" id="btn-en" onclick="setLang('en')" aria-label="English">EN</button>
+      <button class="lang-btn"        id="btn-es" onclick="setLang('es')" aria-label="Español">ES</button>
+    </div>
   </div>
 </nav>
 
 <!-- HERO -->
 <section class="hero" aria-label="Hero">
   <div class="hero-grid" aria-hidden="true"></div>
-  <div class="hero-glow" aria-hidden="true"></div>
+  <div class="hero-glow"  aria-hidden="true"></div>
   <div class="hero-glow-2" aria-hidden="true"></div>
-  <div class="hero-badge" role="status">🇺🇸 English · 🇨🇷 Español · Available Now</div>
-  <h1>Tech Support That <em>Actually Speaks</em><br>Your Language</h1>
-  <p>Professional bilingual IT support for English-speaking residents in Costa Rica. On-site visits and remote help across the GAM — clear communication, no guesswork.</p>
+
+  <div class="hero-badge" role="status">🇺🇸 English · 🇨🇷 Español · <span class="en">Available Now</span><span class="es">Disponible Ahora</span></div>
+
+  <h1 class="en">Tech Support That <em>Actually Speaks</em><br>Your Language</h1>
+  <h1 class="es">Soporte Técnico Que <em>Realmente Habla</em><br>Tu Idioma</h1>
+
+  <p class="en">Professional bilingual IT support for English-speaking residents in Costa Rica. On-site visits and remote help across the GAM — clear communication, no guesswork.</p>
+  <p class="es">Soporte técnico bilingüe profesional para residentes de habla inglesa en Costa Rica. Visitas a domicilio y ayuda remota en todo el GAM — comunicación clara, sin complicaciones.</p>
+
   <div class="hero-btns">
     <a href="#contact" class="btn-primary">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92V19.92C22 20.48 21.55 21 21 21C10.34 21 2 12.66 2 2C2 1.45 2.52 1 3.08 1H6.09C6.59 1 7.04 1.35 7.09 1.85C7.31 3.56 7.76 5.22 8.41 6.77C8.58 7.18 8.47 7.65 8.14 7.93L6.62 9.45C7.88 12.24 10.76 15.12 13.55 16.38L15.07 14.86C15.35 14.53 15.82 14.42 16.23 14.59C17.78 15.24 19.44 15.69 21.15 15.91C21.65 15.96 22 16.42 22 16.92Z"/></svg>
-      Get Help Now
+      <span class="en">Get Help Now</span>
+      <span class="es">Solicitar Ayuda</span>
     </a>
-    <a href="#services" class="btn-outline">View Services →</a>
+    <a href="#services" class="btn-outline">
+      <span class="en">View Services →</span>
+      <span class="es">Ver Servicios →</span>
+    </a>
   </div>
+
   <div class="hero-zones" aria-label="Coverage zones">
-    <span>Coverage zones:</span>
+    <span class="en">Coverage zones:</span>
+    <span class="es">Zonas de cobertura:</span>
     <span class="zone-tag">Escazú</span>
     <span class="zone-tag">Santa Ana</span>
     <span class="zone-tag">San José</span>
@@ -574,266 +374,305 @@
 <div class="trust" role="list" aria-label="Trust indicators">
   <div class="trust-item" role="listitem">
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-    <div><strong>8+ Years</strong> Corporate IT Experience</div>
+    <div><strong>8+ <span class="en">Years</span><span class="es">Años</span></strong> <span class="en">Corporate IT Experience</span><span class="es">Experiencia IT Corporativa</span></div>
   </div>
   <div class="trust-item" role="listitem">
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-    <div><strong>Same-Day</strong> Response Available</div>
+    <div><strong><span class="en">Same-Day</span><span class="es">Mismo día</span></strong> <span class="en">Response Available</span><span class="es">Respuesta disponible</span></div>
   </div>
   <div class="trust-item" role="listitem">
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-    <div><strong>Bilingual</strong> English & Spanish</div>
+    <div><strong><span class="en">Bilingual</span><span class="es">Bilingüe</span></strong> English &amp; Español</div>
   </div>
   <div class="trust-item" role="listitem">
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-    <div><strong>On-site</strong> & Remote Support</div>
+    <div><strong><span class="en">On-site</span><span class="es">A domicilio</span></strong> &amp; <span class="en">Remote Support</span><span class="es">Soporte Remoto</span></div>
   </div>
 </div>
 
 <!-- SERVICES -->
 <section id="services" aria-labelledby="services-title">
-  <div class="section-label">What We Do</div>
-  <h2 class="section-title" id="services-title">Everything Your Tech Needs, Solved</h2>
-  <p class="section-sub">From setting up your home office to fixing critical issues — handled entirely in English, so nothing gets lost in translation.</p>
+  <div class="section-label en">What We Do</div>
+  <div class="section-label es">Qué Hacemos</div>
+  <h2 class="section-title en" id="services-title">Everything Your Tech Needs, Solved</h2>
+  <h2 class="section-title es">Todo Lo Que Tu Tecnología Necesita, Resuelto</h2>
+  <p class="section-sub en">From setting up your home office to fixing critical issues — handled entirely in English, so nothing gets lost in translation.</p>
+  <p class="section-sub es">Desde configurar tu oficina en casa hasta resolver problemas críticos — todo explicado claramente, sin barreras de idioma.</p>
   <div class="services-grid">
     <div class="service-card">
-      <div class="service-icon" aria-hidden="true">
-        <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-      </div>
-      <h3>Computer & Laptop Repair</h3>
-      <p>Slow PC, viruses, blue screens, software crashes — diagnosed and fixed on-site or remotely. Clear explanations, no tech jargon.</p>
+      <div class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+      <h3 class="en">Computer &amp; Laptop Repair</h3>
+      <h3 class="es">Reparación de PC y Laptop</h3>
+      <p class="en">Slow PC, viruses, blue screens, software crashes — diagnosed and fixed on-site or remotely. Clear explanations, no tech jargon.</p>
+      <p class="es">PC lenta, virus, pantallas azules, fallos de software — diagnosticados y resueltos en sitio o de forma remota. Explicaciones claras, sin tecnicismos.</p>
     </div>
     <div class="service-card">
-      <div class="service-icon" aria-hidden="true">
-        <svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
-      </div>
-      <h3>Network & WiFi Setup</h3>
-      <p>Full home network setup, WiFi optimization, router configuration and secure networks for your home or home office in Costa Rica.</p>
+      <div class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg></div>
+      <h3 class="en">Network &amp; WiFi Setup</h3>
+      <h3 class="es">Configuración de Red y WiFi</h3>
+      <p class="en">Full home network setup, WiFi optimization, router configuration and secure networks for your home or home office in Costa Rica.</p>
+      <p class="es">Configuración completa de red doméstica, optimización de WiFi y redes seguras para tu hogar u oficina en Costa Rica.</p>
     </div>
     <div class="service-card">
-      <div class="service-icon" aria-hidden="true">
-        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-      </div>
-      <h3>Cybersecurity</h3>
-      <p>Antivirus setup, password management, VPN configuration and security audits to keep your data and privacy safe in Costa Rica.</p>
+      <div class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+      <h3 class="en">Cybersecurity</h3>
+      <h3 class="es">Ciberseguridad</h3>
+      <p class="en">Antivirus setup, password management, VPN configuration and security audits to keep your data and privacy safe in Costa Rica.</p>
+      <p class="es">Antivirus, gestión de contraseñas, VPN y auditorías de seguridad para proteger tus datos y privacidad en Costa Rica.</p>
     </div>
     <div class="service-card">
-      <div class="service-icon" aria-hidden="true">
-        <svg viewBox="0 0 24 24"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
-      </div>
-      <h3>Cloud & Backup</h3>
-      <p>Google Workspace, Microsoft 365, OneDrive, iCloud — setup, migration and backup so you never lose important files or photos again.</p>
+      <div class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg></div>
+      <h3 class="en">Cloud &amp; Backup</h3>
+      <h3 class="es">Nube y Respaldos</h3>
+      <p class="en">Google Workspace, Microsoft 365, OneDrive, iCloud — setup, migration and backup so you never lose important files or photos again.</p>
+      <p class="es">Google Workspace, Microsoft 365, OneDrive, iCloud — configuración, migración y respaldo para que nunca pierdas archivos importantes.</p>
     </div>
     <div class="service-card">
-      <div class="service-icon" aria-hidden="true">
-        <svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
-      </div>
-      <h3>Phone & Tablet Help</h3>
-      <p>iOS and Android setup, data transfer, app troubleshooting and full device optimization for smartphones and tablets.</p>
+      <div class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
+      <h3 class="en">Phone &amp; Tablet Help</h3>
+      <h3 class="es">Teléfonos y Tablets</h3>
+      <p class="en">iOS and Android setup, data transfer, app troubleshooting and full device optimization for smartphones and tablets.</p>
+      <p class="es">Configuración iOS y Android, transferencia de datos, solución de apps y optimización completa de dispositivos móviles.</p>
     </div>
     <div class="service-card">
-      <div class="service-icon" aria-hidden="true">
-        <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-      </div>
-      <h3>Monthly Support Plans</h3>
-      <p>Priority response, regular maintenance and a dedicated bilingual tech contact — always ready for English-speaking residents in the GAM.</p>
+      <div class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+      <h3 class="en">Monthly Support Plans</h3>
+      <h3 class="es">Planes de Soporte Mensual</h3>
+      <p class="en">Priority response, regular maintenance and a dedicated bilingual tech contact — always ready for English-speaking residents in the GAM.</p>
+      <p class="es">Respuesta prioritaria, mantenimiento regular y un técnico bilingüe dedicado — siempre disponible para residentes en el GAM.</p>
     </div>
   </div>
 </section>
 
-
 <!-- TOP SERVICES -->
-<section id="top-services" aria-labelledby="top-services-title" style="background: var(--navy-light);">
-  <div class="section-label">Most Requested</div>
-  <h2 class="section-title" id="top-services-title">Our 10 Most In-Demand Services</h2>
-  <p class="section-sub">The tech problems English-speaking residents in Costa Rica need solved most — handled professionally, explained clearly.</p>
+<section id="top-services" aria-labelledby="top-services-title">
+  <div class="section-label en">Most Requested</div>
+  <div class="section-label es">Más Solicitados</div>
+  <h2 class="section-title en" id="top-services-title">Our 10 Most In-Demand Services</h2>
+  <h2 class="section-title es">Nuestros 10 Servicios Más Solicitados</h2>
+  <p class="section-sub en">The tech problems English-speaking residents in Costa Rica need solved most — handled professionally, explained clearly.</p>
+  <p class="section-sub es">Los problemas tecnológicos que más necesitan resolver los residentes en Costa Rica — atendidos profesionalmente, explicados con claridad.</p>
 
   <div class="ts-grid">
-
-    <!-- CAT 1: Windows PC & Laptop -->
+    <!-- CAT 1 -->
     <div class="ts-category">
       <div class="ts-cat-header">
-        <div class="ts-cat-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-        </div>
-        <div>
-          <div class="ts-cat-label">Windows PC &amp; Laptop</div>
-        </div>
+        <div class="ts-cat-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+        <div class="ts-cat-label en">Windows PC &amp; Laptop</div>
+        <div class="ts-cat-label es">PC y Laptop Windows</div>
       </div>
       <ul class="ts-list">
         <li>
           <span class="ts-num">01</span>
           <div>
-            <strong>Virus, Malware &amp; Spyware Removal</strong>
-            <p>Complete cleanup of infections, ransomware traces and unwanted software — your system restored to a safe, clean state.</p>
+            <strong class="en">Virus, Malware &amp; Spyware Removal</strong>
+            <strong class="es">Eliminación de Virus, Malware y Spyware</strong>
+            <p class="en">Complete cleanup of infections, ransomware traces and unwanted software — your system restored to a safe, clean state.</p>
+            <p class="es">Limpieza completa de infecciones, rastros de ransomware y software no deseado — tu equipo restaurado a un estado seguro y limpio.</p>
           </div>
         </li>
         <li>
           <span class="ts-num">02</span>
           <div>
-            <strong>Speed Optimization &amp; Tune-Up</strong>
-            <p>Slow computer driving you crazy? We diagnose and fix the root cause — whether it's software bloat, a failing drive or not enough RAM.</p>
+            <strong class="en">Speed Optimization &amp; Tune-Up</strong>
+            <strong class="es">Optimización de Velocidad y Rendimiento</strong>
+            <p class="en">Slow computer driving you crazy? We diagnose and fix the root cause — whether it's software bloat, a failing drive or not enough RAM.</p>
+            <p class="es">¿Tu computadora va lenta? Diagnosticamos y resolvemos la causa raíz — sea software innecesario, disco deteriorado o falta de RAM.</p>
           </div>
         </li>
         <li>
           <span class="ts-num">03</span>
           <div>
-            <strong>HDD → SSD Upgrade</strong>
-            <p>The single most impactful upgrade for an aging PC. We clone your data and replace the drive — your computer feels brand new.</p>
+            <strong class="en">HDD → SSD Upgrade</strong>
+            <strong class="es">Actualización HDD → SSD</strong>
+            <p class="en">The single most impactful upgrade for an aging PC. We clone your data and replace the drive — your computer feels brand new.</p>
+            <p class="es">La mejora con mayor impacto para un PC viejo. Clonamos tus datos y reemplazamos el disco — tu computadora se siente como nueva.</p>
           </div>
         </li>
       </ul>
     </div>
-
-    <!-- CAT 2: Home Network & WiFi -->
+    <!-- CAT 2 -->
     <div class="ts-category">
       <div class="ts-cat-header">
-        <div class="ts-cat-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
-        </div>
-        <div>
-          <div class="ts-cat-label">Home Network &amp; WiFi</div>
-        </div>
+        <div class="ts-cat-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg></div>
+        <div class="ts-cat-label en">Home Network &amp; WiFi</div>
+        <div class="ts-cat-label es">Red del Hogar y WiFi</div>
       </div>
       <ul class="ts-list">
         <li>
           <span class="ts-num">04</span>
           <div>
-            <strong>WiFi Optimization &amp; Dead Zone Fix</strong>
-            <p>Slow or spotty WiFi throughout your home? We optimize channels, bands and placement — or set up a mesh system for full coverage.</p>
+            <strong class="en">WiFi Optimization &amp; Dead Zone Fix</strong>
+            <strong class="es">Optimización de WiFi y Zonas Muertas</strong>
+            <p class="en">Slow or spotty WiFi throughout your home? We optimize channels, bands and placement — or set up a mesh system for full coverage.</p>
+            <p class="es">¿WiFi lento o con zonas sin señal? Optimizamos canales, bandas y ubicación — o instalamos un sistema mesh para cobertura total.</p>
           </div>
         </li>
         <li>
           <span class="ts-num">05</span>
           <div>
-            <strong>Router &amp; Network Security Setup</strong>
-            <p>Many home networks in Costa Rica are left wide open. We secure yours: WPA3 encryption, strong passwords, firewall and access controls.</p>
+            <strong class="en">Router &amp; Network Security Setup</strong>
+            <strong class="es">Seguridad de Red y Router</strong>
+            <p class="en">Many home networks in Costa Rica are left wide open. We secure yours: WPA3 encryption, strong passwords, firewall and access controls.</p>
+            <p class="es">Muchas redes domésticas en Costa Rica están desprotegidas. Aseguramos la tuya: cifrado WPA3, contraseñas robustas, firewall y control de acceso.</p>
           </div>
         </li>
         <li>
           <span class="ts-num">06</span>
           <div>
-            <strong>VPN Setup &amp; Configuration</strong>
-            <p>Access content from your home country, protect your privacy and secure your connection — set up correctly on all your devices.</p>
+            <strong class="en">VPN Setup &amp; Configuration</strong>
+            <strong class="es">Configuración de VPN</strong>
+            <p class="en">Access content from your home country, protect your privacy and secure your connection — set up correctly on all your devices.</p>
+            <p class="es">Accede a contenido de tu país, protege tu privacidad y asegura tu conexión — configurado correctamente en todos tus dispositivos.</p>
           </div>
         </li>
       </ul>
     </div>
-
-    <!-- CAT 3: Cloud & Productivity -->
+    <!-- CAT 3 -->
     <div class="ts-category">
       <div class="ts-cat-header">
-        <div class="ts-cat-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
-        </div>
-        <div>
-          <div class="ts-cat-label">Cloud &amp; Productivity</div>
-        </div>
+        <div class="ts-cat-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg></div>
+        <div class="ts-cat-label en">Cloud &amp; Productivity</div>
+        <div class="ts-cat-label es">Nube y Productividad</div>
       </div>
       <ul class="ts-list">
         <li>
           <span class="ts-num">07</span>
           <div>
-            <strong>Email, Calendar &amp; Contacts Setup</strong>
-            <p>Outlook, Gmail, Apple Mail — configured properly across all your devices so everything syncs and nothing gets lost.</p>
+            <strong class="en">Email, Calendar &amp; Contacts Setup</strong>
+            <strong class="es">Configuración de Correo, Calendario y Contactos</strong>
+            <p class="en">Outlook, Gmail, Apple Mail — configured properly across all your devices so everything syncs and nothing gets lost.</p>
+            <p class="es">Outlook, Gmail, Apple Mail — configurados correctamente en todos tus dispositivos para que todo sincronice sin perder nada.</p>
           </div>
         </li>
         <li>
           <span class="ts-num">08</span>
           <div>
-            <strong>Cloud Backup &amp; File Sync</strong>
-            <p>OneDrive, iCloud, Google Drive or Dropbox — set up and running automatically so your files are always safe and accessible.</p>
+            <strong class="en">Cloud Backup &amp; File Sync</strong>
+            <strong class="es">Respaldo en Nube y Sincronización</strong>
+            <p class="en">OneDrive, iCloud, Google Drive or Dropbox — set up and running automatically so your files are always safe and accessible.</p>
+            <p class="es">OneDrive, iCloud, Google Drive o Dropbox — configurados y funcionando automáticamente para que tus archivos estén siempre seguros.</p>
           </div>
         </li>
       </ul>
     </div>
-
-    <!-- CAT 4: iPhone & Mac -->
+    <!-- CAT 4 -->
     <div class="ts-category">
       <div class="ts-cat-header">
-        <div class="ts-cat-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
-        </div>
-        <div>
-          <div class="ts-cat-label">iPhone &amp; Mac</div>
-        </div>
+        <div class="ts-cat-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
+        <div class="ts-cat-label en">iPhone &amp; Mac</div>
+        <div class="ts-cat-label es">iPhone y Mac</div>
       </div>
       <ul class="ts-list">
         <li>
           <span class="ts-num">09</span>
           <div>
-            <strong>Apple ID Recovery &amp; iCloud Setup</strong>
-            <p>Locked out of your Apple ID? iCloud not syncing? We sort it out — accounts recovered, devices connected, backups running.</p>
+            <strong class="en">Apple ID Recovery &amp; iCloud Setup</strong>
+            <strong class="es">Recuperación de Apple ID y Configuración iCloud</strong>
+            <p class="en">Locked out of your Apple ID? iCloud not syncing? We sort it out — accounts recovered, devices connected, backups running.</p>
+            <p class="es">¿Bloqueado de tu Apple ID? ¿iCloud no sincroniza? Lo resolvemos — cuentas recuperadas, dispositivos conectados, respaldos activos.</p>
           </div>
         </li>
         <li>
           <span class="ts-num">10</span>
           <div>
-            <strong>Zoom, Teams &amp; Meet Setup</strong>
-            <p>Camera, microphone, screen sharing — everything working perfectly for your remote meetings on Mac, PC or iPhone.</p>
+            <strong class="en">Zoom, Teams &amp; Meet Setup</strong>
+            <strong class="es">Configuración de Zoom, Teams y Meet</strong>
+            <p class="en">Camera, microphone, screen sharing — everything working perfectly for your remote meetings on Mac, PC or iPhone.</p>
+            <p class="es">Cámara, micrófono, pantalla compartida — todo funcionando perfectamente para tus reuniones remotas en Mac, PC o iPhone.</p>
           </div>
         </li>
       </ul>
     </div>
+  </div>
 
-  </div><!-- end ts-grid -->
-
-  <div style="margin-top:48px; text-align:center;">
-    <p style="color:var(--text-muted); font-size:14px; margin-bottom:20px;">Don't see your issue? We cover 50+ services across all devices.</p>
+  <div style="margin-top:48px;text-align:center;">
+    <p style="color:var(--text-muted);font-size:14px;margin-bottom:20px;">
+      <span class="en">Don't see your issue? We cover 50+ services across all devices.</span>
+      <span class="es">¿No ves tu problema? Cubrimos más de 50 servicios en todo tipo de dispositivos.</span>
+    </p>
     <a href="#contact" class="btn-primary" style="display:inline-flex;">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92V19.92C22 20.48 21.55 21 21 21C10.34 21 2 12.66 2 2C2 1.45 2.52 1 3.08 1H6.09C6.59 1 7.04 1.35 7.09 1.85C7.31 3.56 7.76 5.22 8.41 6.77C8.58 7.18 8.47 7.65 8.14 7.93L6.62 9.45C7.88 12.24 10.76 15.12 13.55 16.38L15.07 14.86C15.35 14.53 15.82 14.42 16.23 14.59C17.78 15.24 19.44 15.69 21.15 15.91C21.65 15.96 22 16.42 22 16.92Z"/></svg>
-      Describe Your Problem
+      <span class="en">Describe Your Problem</span>
+      <span class="es">Describí Tu Problema</span>
     </a>
   </div>
 </section>
 
 <!-- FAQ -->
 <section id="faq" aria-labelledby="faq-title">
-  <div class="section-label">Common Questions</div>
-  <h2 class="section-title" id="faq-title">Answers for English-Speaking Residents in Costa Rica</h2>
-  <p class="section-sub">Everything you need to know before reaching out.</p>
+  <div class="section-label en">Common Questions</div>
+  <div class="section-label es">Preguntas Frecuentes</div>
+  <h2 class="section-title en" id="faq-title">Answers for English-Speaking Residents in Costa Rica</h2>
+  <h2 class="section-title es">Respuestas para Residentes en Costa Rica</h2>
+  <p class="section-sub en">Everything you need to know before reaching out.</p>
+  <p class="section-sub es">Todo lo que necesitás saber antes de contactarnos.</p>
   <div class="faq-grid">
     <div class="faq-item">
       <button class="faq-q" aria-expanded="false">
-        Do you provide IT support fully in English?
+        <span class="en">Do you provide IT support fully in English?</span>
+        <span class="es">¿Brindan soporte técnico completamente en inglés?</span>
         <span class="faq-icon" aria-hidden="true">+</span>
       </button>
-      <div class="faq-a" role="region">Yes — 100%. SolvIT CR was built specifically for English-speaking residents and international professionals living in Costa Rica. You'll never need a translator or a Google Translate screenshot to explain your problem.</div>
+      <div class="faq-a" role="region">
+        <span class="en">Yes — 100%. SolvIT CR was built specifically for English-speaking residents and international professionals living in Costa Rica. You'll never need a translator or a Google Translate screenshot to explain your problem.</span>
+        <span class="es">Sí — 100%. SolvIT CR fue creado específicamente para residentes de habla inglesa y profesionales internacionales que viven en Costa Rica. Nunca necesitarás un traductor para explicar tu problema.</span>
+      </div>
     </div>
     <div class="faq-item">
       <button class="faq-q" aria-expanded="false">
-        Which areas in Costa Rica do you cover?
+        <span class="en">Which areas in Costa Rica do you cover?</span>
+        <span class="es">¿Qué zonas de Costa Rica cubren?</span>
         <span class="faq-icon" aria-hidden="true">+</span>
       </button>
-      <div class="faq-a" role="region">We cover the entire Greater Metropolitan Area (GAM): Escazú, Santa Ana, San José, Heredia and Alajuela. Remote support is available immediately anywhere in Costa Rica. On-site visits are scheduled within 24 hours across all GAM zones.</div>
+      <div class="faq-a" role="region">
+        <span class="en">We cover the entire Greater Metropolitan Area (GAM): Escazú, Santa Ana, San José, Heredia and Alajuela. Remote support is available immediately anywhere in Costa Rica. On-site visits are scheduled within 24 hours across all GAM zones.</span>
+        <span class="es">Cubrimos toda el Área Metropolitana (GAM): Escazú, Santa Ana, San José, Heredia y Alajuela. El soporte remoto está disponible de inmediato en cualquier parte de Costa Rica. Las visitas a domicilio se programan en menos de 24 horas.</span>
+      </div>
     </div>
     <div class="faq-item">
       <button class="faq-q" aria-expanded="false">
-        How quickly can you respond to a tech issue?
+        <span class="en">How quickly can you respond to a tech issue?</span>
+        <span class="es">¿Qué tan rápido responden?</span>
         <span class="faq-icon" aria-hidden="true">+</span>
       </button>
-      <div class="faq-a" role="region">For remote support, most issues are handled the same day. For urgent situations, WhatsApp is the fastest way to reach us. On-site visits are typically scheduled within 24 hours. Monthly plan clients get priority response.</div>
+      <div class="faq-a" role="region">
+        <span class="en">For remote support, most issues are handled the same day. For urgent situations, WhatsApp is the fastest way to reach us. On-site visits are typically scheduled within 24 hours. Monthly plan clients get priority response.</span>
+        <span class="es">Para soporte remoto, la mayoría de los problemas se resuelven el mismo día. Para situaciones urgentes, WhatsApp es la forma más rápida de contactarnos. Las visitas a domicilio se programan en menos de 24 horas. Los clientes de plan mensual tienen respuesta prioritaria.</span>
+      </div>
     </div>
     <div class="faq-item">
       <button class="faq-q" aria-expanded="false">
-        Is your pricing transparent? Are there hidden fees?
+        <span class="en">Is your pricing transparent? Are there hidden fees?</span>
+        <span class="es">¿Sus precios son transparentes? ¿Hay cargos ocultos?</span>
         <span class="faq-icon" aria-hidden="true">+</span>
       </button>
-      <div class="faq-a" role="region">No hidden fees, ever. You'll always know exactly what a service costs before we start. We work with both USD and colones — whatever is most convenient for you. Rates are well below what you'd pay for equivalent service back home, with the same professional standards.</div>
+      <div class="faq-a" role="region">
+        <span class="en">No hidden fees, ever. You'll always know exactly what a service costs before we start. We work with both USD and colones — whatever is most convenient for you.</span>
+        <span class="es">Sin cargos ocultos, nunca. Siempre sabrás exactamente cuánto cuesta el servicio antes de comenzar. Trabajamos tanto en dólares como en colones — lo que sea más conveniente para vos.</span>
+      </div>
     </div>
     <div class="faq-item">
       <button class="faq-q" aria-expanded="false">
-        What if my issue can't be fixed remotely?
+        <span class="en">What if my issue can't be fixed remotely?</span>
+        <span class="es">¿Qué pasa si el problema no se puede resolver de forma remota?</span>
         <span class="faq-icon" aria-hidden="true">+</span>
       </button>
-      <div class="faq-a" role="region">We'll always try remote support first since it's fastest. If an on-site visit is needed, we'll schedule it promptly at a time that works for you. No hidden fees — we'll always be upfront about what each service costs before starting.</div>
+      <div class="faq-a" role="region">
+        <span class="en">We'll always try remote support first since it's fastest. If an on-site visit is needed, we'll schedule it promptly at a time that works for you — always upfront about costs before starting.</span>
+        <span class="es">Siempre intentamos el soporte remoto primero por ser más rápido. Si se necesita una visita presencial, la programamos a la hora que te convenga — siempre con el costo claro antes de comenzar.</span>
+      </div>
     </div>
     <div class="faq-item">
       <button class="faq-q" aria-expanded="false">
-        Do you help with smart TVs, printers and home devices too?
+        <span class="en">Do you help with smart TVs, printers and home devices too?</span>
+        <span class="es">¿También ayudan con Smart TVs, impresoras y dispositivos del hogar?</span>
         <span class="faq-icon" aria-hidden="true">+</span>
       </button>
-      <div class="faq-a" role="region">Absolutely. Beyond computers and phones, we help with smart TVs, streaming devices, printers, home network equipment and other connected devices — anything in your home that needs tech support.</div>
+      <div class="faq-a" role="region">
+        <span class="en">Absolutely. Beyond computers and phones, we help with smart TVs, streaming devices, printers, home network equipment and other connected devices — anything in your home that needs tech support.</span>
+        <span class="es">Por supuesto. Más allá de computadoras y teléfonos, ayudamos con Smart TVs, dispositivos de streaming, impresoras, equipos de red y cualquier dispositivo conectado en tu hogar.</span>
+      </div>
     </div>
   </div>
 </section>
@@ -842,65 +681,70 @@
 <section id="about" aria-labelledby="about-title">
   <div class="about-grid">
     <div>
-      <div class="section-label">Why SolvIT CR</div>
-      <h2 class="section-title" id="about-title">Corporate-Grade IT for Costa Rica's International Community.</h2>
-      <p style="color: var(--text-muted); line-height: 1.75; font-size: 15px; font-weight: 300;">
-        With 8+ years of enterprise IT experience in Costa Rica's corporate sector, I know what reliable, professional tech support looks like. I built SolvIT CR to bring that same standard to English-speaking residents and international professionals living in the GAM — people who deserve clear communication and expert service.
-      </p>
+      <div class="section-label en">Why SolvIT CR</div>
+      <div class="section-label es">Por Qué SolvIT CR</div>
+      <h2 class="section-title en" id="about-title">Corporate-Grade IT for Costa Rica's International Community.</h2>
+      <h2 class="section-title es">Soporte IT de Nivel Corporativo para la Comunidad Internacional en Costa Rica.</h2>
+      <p class="en" style="color:var(--text-muted);line-height:1.75;font-size:15px;font-weight:300;">With 8+ years of enterprise IT experience in Costa Rica's corporate sector, I know what reliable, professional tech support looks like. I built SolvIT CR to bring that same standard to English-speaking residents and international professionals living in the GAM.</p>
+      <p class="es" style="color:var(--text-muted);line-height:1.75;font-size:15px;font-weight:300;">Con más de 8 años de experiencia en IT corporativo en Costa Rica, sé cómo es el soporte técnico confiable y profesional. Creé SolvIT CR para llevar ese mismo estándar a los residentes de habla inglesa y profesionales internacionales que viven en el GAM.</p>
       <div class="about-stats">
         <div class="stat-card">
           <div class="stat-num">8+</div>
-          <div class="stat-label">Years corporate IT experience</div>
+          <div class="stat-label en">Years corporate IT experience</div>
+          <div class="stat-label es">Años de experiencia IT corporativa</div>
         </div>
         <div class="stat-card">
           <div class="stat-num">100%</div>
-          <div class="stat-label">Bilingual English / Spanish</div>
+          <div class="stat-label en">Bilingual English / Spanish</div>
+          <div class="stat-label es">Bilingüe Inglés / Español</div>
         </div>
         <div class="stat-card">
           <div class="stat-num">5</div>
-          <div class="stat-label">GAM zones covered</div>
+          <div class="stat-label en">GAM zones covered</div>
+          <div class="stat-label es">Zonas del GAM cubiertas</div>
         </div>
         <div class="stat-card">
           <div class="stat-num">GAM</div>
-          <div class="stat-label">Greater Metropolitan Area covered</div>
+          <div class="stat-label en">Greater Metropolitan Area</div>
+          <div class="stat-label es">Gran Área Metropolitana</div>
         </div>
       </div>
     </div>
     <div class="about-right">
       <div class="about-point">
-        <div class="about-point-icon">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-        </div>
+        <div class="about-point-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
         <div>
-          <h4>Full Support in English</h4>
-          <p>Explain your problem naturally and get clear answers back — no translation app, no confusion, no misunderstandings.</p>
+          <h4 class="en">Full Support in English</h4>
+          <h4 class="es">Soporte Completo en Inglés</h4>
+          <p class="en">Explain your problem naturally and get clear answers back — no translation app, no confusion, no misunderstandings.</p>
+          <p class="es">Explicá tu problema con naturalidad y recibí respuestas claras — sin app de traducción, sin confusiones, sin malentendidos.</p>
         </div>
       </div>
       <div class="about-point">
-        <div class="about-point-icon">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        </div>
+        <div class="about-point-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
         <div>
-          <h4>Fast & Reliable Response</h4>
-          <p>Same-day remote help for most issues. On-site visits across all GAM zones scheduled within 24 hours.</p>
+          <h4 class="en">Fast &amp; Reliable Response</h4>
+          <h4 class="es">Respuesta Rápida y Confiable</h4>
+          <p class="en">Same-day remote help for most issues. On-site visits across all GAM zones scheduled within 24 hours.</p>
+          <p class="es">Ayuda remota el mismo día para la mayoría de los problemas. Visitas a domicilio en todo el GAM programadas en menos de 24 horas.</p>
         </div>
       </div>
       <div class="about-point">
-        <div class="about-point-icon">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        </div>
+        <div class="about-point-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
         <div>
-          <h4>Corporate-Level Standards</h4>
-          <p>Enterprise IT background means your data, privacy and devices are handled with professional-grade care — every time.</p>
+          <h4 class="en">Corporate-Level Standards</h4>
+          <h4 class="es">Estándares de Nivel Corporativo</h4>
+          <p class="en">Enterprise IT background means your data, privacy and devices are handled with professional-grade care — every time.</p>
+          <p class="es">La experiencia en IT empresarial significa que tus datos, privacidad y dispositivos se manejan con cuidado profesional — siempre.</p>
         </div>
       </div>
       <div class="about-point">
-        <div class="about-point-icon">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-        </div>
+        <div class="about-point-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
         <div>
-          <h4>Transparent, No-Surprise Pricing</h4>
-          <p>Clear rates well below what you'd pay back home. No hidden fees, no surprise charges — ever. We work in both USD and colones.</p>
+          <h4 class="en">Transparent, No-Surprise Pricing</h4>
+          <h4 class="es">Precios Transparentes, Sin Sorpresas</h4>
+          <p class="en">Clear rates well below what you'd pay back home. No hidden fees, no surprise charges — ever. We work in both USD and colones.</p>
+          <p class="es">Tarifas claras muy por debajo de lo que pagarías en tu país de origen. Sin cargos ocultos ni sorpresas — nunca. Trabajamos en dólares y colones.</p>
         </div>
       </div>
     </div>
@@ -910,9 +754,12 @@
 <!-- CONTACT -->
 <section id="contact" aria-labelledby="contact-title">
   <div class="contact-wrapper">
-    <div class="section-label">Get In Touch</div>
-    <h2 class="section-title" id="contact-title">Ready to Solve Your Tech Problem?</h2>
-    <p class="section-sub">Fill out the form and we'll get back to you within a few hours. WhatsApp is fastest for urgent issues.</p>
+    <div class="section-label en">Get In Touch</div>
+    <div class="section-label es">Contáctenos</div>
+    <h2 class="section-title en" id="contact-title">Ready to Solve Your Tech Problem?</h2>
+    <h2 class="section-title es">¿Listo para Resolver Tu Problema Tecnológico?</h2>
+    <p class="section-sub en">Fill out the form and we'll get back to you within a few hours. WhatsApp is fastest for urgent issues.</p>
+    <p class="section-sub es">Completá el formulario y te responderemos en pocas horas. WhatsApp es la opción más rápida para urgencias.</p>
     <div class="contact-info">
       <a href="https://wa.me/50686300037" class="contact-card" target="_blank" rel="noopener" aria-label="Contact via WhatsApp">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92V19.92C22 20.48 21.55 21 21 21C10.34 21 2 12.66 2 2C2 1.45 2.52 1 3.08 1H6.09C6.59 1 7.04 1.35 7.09 1.85C7.31 3.56 7.76 5.22 8.41 6.77C8.58 7.18 8.47 7.65 8.14 7.93L6.62 9.45C7.88 12.24 10.76 15.12 13.55 16.38L15.07 14.86C15.35 14.53 15.82 14.42 16.23 14.59C17.78 15.24 19.44 15.69 21.15 15.91C21.65 15.96 22 16.42 22 16.92Z"/></svg>
@@ -926,15 +773,21 @@
       </a>
       <div class="contact-card">
         <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        <h4>Response Time</h4>
-        <p>Within a few hours</p>
+        <h4 class="en">Response Time</h4>
+        <h4 class="es">Tiempo de Respuesta</h4>
+        <p class="en">Within a few hours</p>
+        <p class="es">En pocas horas</p>
       </div>
     </div>
     <div class="form-container" id="form-wrapper">
       <div id="form-placeholder" style="min-height:200px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:48px 24px;">
-        <p style="color:var(--text-muted);font-size:15px;text-align:center;">Click the button below to load the contact form.</p>
+        <p style="color:var(--text-muted);font-size:15px;text-align:center;">
+          <span class="en">Click the button below to load the contact form.</span>
+          <span class="es">Hacé clic abajo para cargar el formulario de contacto.</span>
+        </p>
         <button id="load-form-btn" onclick="loadContactForm()" style="background:var(--green);color:var(--navy);font-family:'DM Sans',sans-serif;font-weight:600;font-size:15px;padding:14px 32px;border-radius:50px;border:none;cursor:pointer;transition:background 0.2s;">
-          Open Contact Form
+          <span class="en">Open Contact Form</span>
+          <span class="es">Abrir Formulario</span>
         </button>
       </div>
     </div>
@@ -945,14 +798,18 @@
 <footer>
   <div>
     <div class="footer-logo">Solv<span>IT</span> CR</div>
-    <p style="margin-top: 6px;">Bilingual IT Support for English-Speaking Residents · Greater Metropolitan Area, Costa Rica</p>
+    <p class="en" style="margin-top:6px;">Bilingual IT Support for English-Speaking Residents · Greater Metropolitan Area, Costa Rica</p>
+    <p class="es" style="margin-top:6px;">Soporte IT Bilingüe para Residentes de Habla Inglesa · Gran Área Metropolitana, Costa Rica</p>
   </div>
   <div class="footer-links">
-    <a href="#services">Services</a>
+    <a href="#services"     class="en">Services</a>
+    <a href="#services"     class="es">Servicios</a>
     <a href="#top-services">Top 10</a>
     <a href="#faq">FAQ</a>
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a>
+    <a href="#about"  class="en">About</a>
+    <a href="#about"  class="es">Nosotros</a>
+    <a href="#contact" class="en">Contact</a>
+    <a href="#contact" class="es">Contacto</a>
   </div>
   <p>© 2025 SolvIT CR · All rights reserved</p>
 </footer>
@@ -960,14 +817,26 @@
 <script>
   if (history.scrollRestoration) history.scrollRestoration = 'manual';
 
+  // ── Language Switcher ──
+  function setLang(lang) {
+    document.documentElement.setAttribute('data-lang', lang);
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    document.getElementById('btn-es').classList.toggle('active', lang === 'es');
+    localStorage.setItem('solvit-lang', lang);
+  }
+
+  // Restaurar idioma guardado
+  (function() {
+    var saved = localStorage.getItem('solvit-lang');
+    if (saved === 'es') setLang('es');
+  })();
+
+  // ── Contact Form ──
   function loadContactForm() {
     var wrapper = document.getElementById('form-wrapper');
     var placeholder = document.getElementById('form-placeholder');
-    // Guardar posición exacta antes de tocar el DOM
     var savedY = window.scrollY;
-    // Ocultar placeholder
     placeholder.style.display = 'none';
-    // Crear iframe
     var iframe = document.createElement('iframe');
     iframe.title = 'Contact SolvIT CR';
     iframe.allowFullscreen = true;
@@ -975,18 +844,16 @@
     iframe.tabIndex = -1;
     iframe.style.cssText = 'width:100%;min-height:620px;border:none;display:block;background:transparent;';
     iframe.addEventListener('load', function() {
-      // Restaurar posición y quitar foco del iframe
       window.scrollTo({ top: savedY, behavior: 'instant' });
       iframe.blur();
       document.activeElement && document.activeElement.blur();
     }, { once: true });
     wrapper.appendChild(iframe);
-    // Asignar src DESPUÉS de adjuntar al DOM
     iframe.src = 'https://forms.cloud.microsoft/r/qbsQhAfgMX';
   }
 
+  // ── FAQ Accordion ──
   document.addEventListener('DOMContentLoaded', function() {
-    // ── FAQ accordion ──
     document.querySelectorAll('.faq-q').forEach(function(btn) {
       btn.addEventListener('click', function() {
         var item = this.closest('.faq-item');
