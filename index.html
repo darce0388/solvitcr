@@ -709,8 +709,13 @@
         <p>Within a few hours</p>
       </div>
     </div>
-    <div class="form-container">
-      <iframe id="contact-form" data-src="https://forms.cloud.microsoft/r/qbsQhAfgMX" title="Contact SolvIT CR — Bilingual IT Support Costa Rica" allowfullscreen scrolling="no" tabindex="-1"></iframe>
+    <div class="form-container" id="form-wrapper">
+      <div id="form-placeholder" style="min-height:200px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:48px 24px;">
+        <p style="color:var(--text-muted);font-size:15px;text-align:center;">Click the button below to load the contact form.</p>
+        <button id="load-form-btn" onclick="loadContactForm()" style="background:var(--green);color:var(--navy);font-family:'DM Sans',sans-serif;font-weight:600;font-size:15px;padding:14px 32px;border-radius:50px;border:none;cursor:pointer;transition:background 0.2s;">
+          Open Contact Form
+        </button>
+      </div>
     </div>
   </div>
 </section>
@@ -731,44 +736,34 @@
 </footer>
 
 <script>
-  // ── Scroll restoration ──
   if (history.scrollRestoration) history.scrollRestoration = 'manual';
 
+  function loadContactForm() {
+    var wrapper = document.getElementById('form-wrapper');
+    var placeholder = document.getElementById('form-placeholder');
+    // Guardar posición exacta antes de tocar el DOM
+    var savedY = window.scrollY;
+    // Ocultar placeholder
+    placeholder.style.display = 'none';
+    // Crear iframe
+    var iframe = document.createElement('iframe');
+    iframe.title = 'Contact SolvIT CR';
+    iframe.allowFullscreen = true;
+    iframe.scrolling = 'no';
+    iframe.tabIndex = -1;
+    iframe.style.cssText = 'width:100%;min-height:620px;border:none;display:block;background:transparent;';
+    iframe.addEventListener('load', function() {
+      // Restaurar posición y quitar foco del iframe
+      window.scrollTo({ top: savedY, behavior: 'instant' });
+      iframe.blur();
+      document.activeElement && document.activeElement.blur();
+    }, { once: true });
+    wrapper.appendChild(iframe);
+    // Asignar src DESPUÉS de adjuntar al DOM
+    iframe.src = 'https://forms.cloud.microsoft/r/qbsQhAfgMX';
+  }
+
   document.addEventListener('DOMContentLoaded', function() {
-
-    // ── Iframe: lazy load real con IntersectionObserver ──
-    // El src NO se asigna hasta que el usuario llega cerca del contacto.
-    // Así el iframe nunca puede robar el foco ni causar scroll durante la navegación.
-    var iframe = document.getElementById('contact-form');
-    var iframeLoaded = false;
-
-    if (iframe && 'IntersectionObserver' in window) {
-      var observer = new IntersectionObserver(function(entries) {
-        entries.forEach(function(entry) {
-          if (entry.isIntersecting && !iframeLoaded) {
-            iframeLoaded = true;
-            // Guardamos la posición antes de cargar
-            var savedY = window.scrollY;
-            iframe.src = iframe.dataset.src;
-            iframe.addEventListener('load', function() {
-              // Restaurar posición exacta tras la carga del iframe
-              window.scrollTo({ top: savedY, behavior: 'instant' });
-              iframe.blur();
-              iframe.setAttribute('tabindex', '-1');
-            }, { once: true });
-            observer.disconnect();
-          }
-        });
-      }, {
-        rootMargin: '200px 0px', // empieza a cargar 200px antes de entrar al viewport
-        threshold: 0
-      });
-      observer.observe(iframe);
-    } else if (iframe) {
-      // Fallback: navegadores sin IntersectionObserver
-      iframe.src = iframe.dataset.src;
-    }
-
     // ── FAQ accordion ──
     document.querySelectorAll('.faq-q').forEach(function(btn) {
       btn.addEventListener('click', function() {
