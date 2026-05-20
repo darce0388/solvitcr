@@ -710,7 +710,7 @@
       </div>
     </div>
     <div class="form-container">
-      <iframe id="contact-form" src="https://forms.cloud.microsoft/r/qbsQhAfgMX" title="Contact SolvIT CR — Bilingual IT Support Costa Rica" allowfullscreen scrolling="no" tabindex="-1" loading="lazy"></iframe>
+      <iframe id="contact-form" data-src="https://forms.cloud.microsoft/r/qbsQhAfgMX" title="Contact SolvIT CR — Bilingual IT Support Costa Rica" allowfullscreen scrolling="no" tabindex="-1"></iframe>
     </div>
   </div>
 </section>
@@ -731,13 +731,42 @@
 </footer>
 
 <script>
-  // ── Anti-scroll: forzar top al cargar ──
+  // ── Scroll restoration ──
   if (history.scrollRestoration) history.scrollRestoration = 'manual';
-  window.addEventListener('load', function() { window.scrollTo(0, 0); });
+
   document.addEventListener('DOMContentLoaded', function() {
+
+    // ── Iframe: lazy load real con IntersectionObserver ──
+    // El src NO se asigna hasta que el usuario llega cerca del contacto.
+    // Así el iframe nunca puede robar el foco ni causar scroll durante la navegación.
     var iframe = document.getElementById('contact-form');
-    if (iframe) {
-      iframe.addEventListener('load', function() { window.scrollTo(0, 0); });
+    var iframeLoaded = false;
+
+    if (iframe && 'IntersectionObserver' in window) {
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting && !iframeLoaded) {
+            iframeLoaded = true;
+            // Guardamos la posición antes de cargar
+            var savedY = window.scrollY;
+            iframe.src = iframe.dataset.src;
+            iframe.addEventListener('load', function() {
+              // Restaurar posición exacta tras la carga del iframe
+              window.scrollTo({ top: savedY, behavior: 'instant' });
+              iframe.blur();
+              iframe.setAttribute('tabindex', '-1');
+            }, { once: true });
+            observer.disconnect();
+          }
+        });
+      }, {
+        rootMargin: '200px 0px', // empieza a cargar 200px antes de entrar al viewport
+        threshold: 0
+      });
+      observer.observe(iframe);
+    } else if (iframe) {
+      // Fallback: navegadores sin IntersectionObserver
+      iframe.src = iframe.dataset.src;
     }
 
     // ── FAQ accordion ──
@@ -745,12 +774,10 @@
       btn.addEventListener('click', function() {
         var item = this.closest('.faq-item');
         var isOpen = item.classList.contains('open');
-        // cerrar todos
         document.querySelectorAll('.faq-item.open').forEach(function(el) {
           el.classList.remove('open');
           el.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
         });
-        // abrir el clickeado si estaba cerrado
         if (!isOpen) {
           item.classList.add('open');
           this.setAttribute('aria-expanded', 'true');
