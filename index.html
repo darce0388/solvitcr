@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -249,77 +248,7 @@
 
   .service-card p { font-size: 14px; color: var(--text-muted); line-height: 1.65; }
 
-  /* ── PRICING ── */
-  #pricing { background: rgba(255,255,255,0.02); }
-
-  .pricing-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 20px; align-items: start;
-  }
-
-  .pricing-card {
-    background: rgba(255,255,255,0.04);
-    border: 1px solid var(--border);
-    border-radius: 16px; padding: 32px 28px;
-    transition: all 0.3s;
-  }
-
-  .pricing-card.featured {
-    background: var(--green);
-    border-color: var(--green);
-  }
-
-  .pricing-card.featured h3,
-  .pricing-card.featured p,
-  .pricing-card.featured li,
-  .pricing-card.featured .price-sub { color: var(--navy) !important; }
-
-  .pricing-card.featured .price { color: var(--navy); }
-
-  .pricing-tag {
-    display: inline-block;
-    background: rgba(0,201,122,0.15); color: var(--green);
-    font-size: 11px; font-weight: 500; letter-spacing: 1px;
-    text-transform: uppercase; padding: 4px 12px;
-    border-radius: 50px; margin-bottom: 16px;
-  }
-
-  .pricing-card.featured .pricing-tag {
-    background: rgba(11,37,64,0.15); color: var(--navy);
-  }
-
-  .pricing-card h3 {
-    font-family: 'Syne', sans-serif; font-size: 20px;
-    font-weight: 700; margin-bottom: 6px;
-  }
-
-  .pricing-card p { font-size: 13px; color: var(--text-muted); margin-bottom: 20px; }
-
-  .price {
-    font-family: 'Syne', sans-serif; font-size: 40px;
-    font-weight: 800; color: var(--white);
-  }
-
-  .price sup { font-size: 20px; vertical-align: super; }
-  .price-sub { font-size: 13px; color: var(--text-muted); margin-bottom: 24px; margin-top: 2px; }
-
-  .pricing-divider { height: 1px; background: var(--border); margin: 20px 0; }
-  .pricing-card.featured .pricing-divider { background: rgba(11,37,64,0.2); }
-
-  .pricing-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-
-  .pricing-list li {
-    display: flex; align-items: flex-start; gap: 10px;
-    font-size: 13px; color: #c0cfe0; line-height: 1.4;
-  }
-
-  .pricing-list li::before {
-    content: '✓'; color: var(--green); font-weight: 700;
-    flex-shrink: 0; margin-top: 1px;
-  }
-
-  .pricing-card.featured .pricing-list li::before { color: var(--navy); }
+  
 
   /* ── ABOUT ── */
   #about { background: var(--navy); }
@@ -468,7 +397,6 @@
   </a>
   <div class="nav-links">
     <a href="#services">Services</a>
-    <a href="#pricing">Pricing</a>
     <a href="#about">About</a>
     <a href="#contact" class="nav-cta">Get Help</a>
   </div>
@@ -571,76 +499,7 @@
   </div>
 </section>
 
-<!-- PRICING -->
-<section id="pricing">
-  <div class="section-label">Transparent Pricing</div>
-  <h2 class="section-title">Clear USD Rates. No Surprises.</h2>
-  <p class="section-sub">All services quoted in USD. Fair rates positioned well below what you'd pay back home.</p>
-  <div class="pricing-grid">
-    <div class="pricing-card">
-      <div class="pricing-tag">Pay As You Go</div>
-      <h3>Remote Support</h3>
-      <p>Quick fixes from anywhere</p>
-      <div class="price"><sup>$</sup>35</div>
-      <div class="price-sub">per hour · USD</div>
-      <div class="pricing-divider"></div>
-      <ul class="pricing-list">
-        <li>Billed in 30-min increments</li>
-        <li>Screen sharing via secure link</li>
-        <li>Virus & malware removal</li>
-        <li>Software troubleshooting</li>
-        <li>Email & cloud setup</li>
-      </ul>
-    </div>
-    <div class="pricing-card">
-      <div class="pricing-tag">On-Site Visit</div>
-      <h3>Home Visit</h3>
-      <p>We come to you — GAM zones</p>
-      <div class="price"><sup>$</sup>75</div>
-      <div class="price-sub">flat fee · up to 1.5 hrs</div>
-      <div class="pricing-divider"></div>
-      <ul class="pricing-list">
-        <li>Escazú, Santa Ana, San José</li>
-        <li>Heredia & Alajuela coverage</li>
-        <li>Hardware diagnostics</li>
-        <li>Network & WiFi setup</li>
-        <li>+$35/hr after first 1.5 hrs</li>
-      </ul>
-    </div>
-    <div class="pricing-card featured">
-      <div class="pricing-tag">Most Popular</div>
-      <h3>Standard Plan</h3>
-      <p>Best value for expat homes</p>
-      <div class="price"><sup>$</sup>89</div>
-      <div class="price-sub">per month · USD</div>
-      <div class="pricing-divider"></div>
-      <ul class="pricing-list">
-        <li>2 hrs remote support/month</li>
-        <li>1 on-site visit included</li>
-        <li>Priority response time</li>
-        <li>Monthly security check</li>
-        <li>WhatsApp direct access</li>
-        <li>First month 20% off</li>
-      </ul>
-    </div>
-    <div class="pricing-card">
-      <div class="pricing-tag">Full Coverage</div>
-      <h3>Premium Plan</h3>
-      <p>Maximum peace of mind</p>
-      <div class="price"><sup>$</sup>149</div>
-      <div class="price-sub">per month · USD</div>
-      <div class="pricing-divider"></div>
-      <ul class="pricing-list">
-        <li>5 hrs remote support/month</li>
-        <li>2 on-site visits included</li>
-        <li>Same-day priority response</li>
-        <li>After-hours availability</li>
-        <li>Full device coverage</li>
-        <li>First month 20% off</li>
-      </ul>
-    </div>
-  </div>
-</section>
+
 
 <!-- ABOUT -->
 <section id="about">
@@ -748,7 +607,7 @@
   </div>
   <div class="footer-links">
     <a href="#services">Services</a>
-    <a href="#pricing">Pricing</a>
+    
     <a href="#contact">Contact</a>
   </div>
   <p>© 2025 SolvIT CR · All rights reserved</p>
