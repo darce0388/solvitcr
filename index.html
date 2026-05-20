@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -448,6 +449,80 @@
     section { padding: 72px 5%; }
     .services-grid { grid-template-columns: 1fr; }
   }
+
+  /* ── TOP SERVICES ── */
+  #top-services { background: var(--navy-light); }
+
+  .ts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+  }
+
+  .ts-category {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 28px;
+    transition: border-color 0.3s;
+  }
+  .ts-category:hover { border-color: var(--border-green); }
+
+  .ts-cat-header {
+    display: flex; align-items: center; gap: 14px;
+    margin-bottom: 24px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .ts-cat-icon {
+    width: 44px; height: 44px; border-radius: 12px;
+    background: rgba(0,201,122,0.1);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; color: var(--green);
+  }
+  .ts-cat-icon svg { width: 22px; height: 22px; }
+
+  .ts-cat-label {
+    font-family: 'Syne', sans-serif;
+    font-size: 16px; font-weight: 700;
+    letter-spacing: -0.2px;
+  }
+
+  .ts-list {
+    list-style: none;
+    display: flex; flex-direction: column; gap: 20px;
+  }
+
+  .ts-list li {
+    display: flex; gap: 16px; align-items: flex-start;
+  }
+
+  .ts-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 11px; font-weight: 700;
+    color: var(--green); letter-spacing: 1px;
+    background: rgba(0,201,122,0.1);
+    border-radius: 6px; padding: 3px 7px;
+    flex-shrink: 0; margin-top: 2px;
+  }
+
+  .ts-list strong {
+    display: block;
+    font-family: 'Syne', sans-serif;
+    font-size: 14px; font-weight: 600;
+    margin-bottom: 5px;
+  }
+
+  .ts-list p {
+    font-size: 13px; color: var(--text-muted);
+    line-height: 1.65;
+  }
+
+  @media (max-width: 768px) {
+    .ts-grid { grid-template-columns: 1fr; }
+  }
+
 </style>
 </head>
 <body>
@@ -464,6 +539,7 @@
   </a>
   <div class="nav-links">
     <a href="#services">Services</a>
+    <a href="#top-services">Top 10</a>
     <a href="#faq">FAQ</a>
     <a href="#about">About</a>
     <a href="#contact" class="nav-cta">Get Help Now</a>
@@ -563,6 +639,152 @@
       <h3>Monthly Support Plans</h3>
       <p>Priority response, regular maintenance and a dedicated bilingual tech contact — always ready for English-speaking residents in the GAM.</p>
     </div>
+  </div>
+</section>
+
+
+<!-- TOP SERVICES -->
+<section id="top-services" aria-labelledby="top-services-title" style="background: var(--navy-light);">
+  <div class="section-label">Most Requested</div>
+  <h2 class="section-title" id="top-services-title">Our 10 Most In-Demand Services</h2>
+  <p class="section-sub">The tech problems English-speaking residents in Costa Rica need solved most — handled professionally, explained clearly.</p>
+
+  <div class="ts-grid">
+
+    <!-- CAT 1: Windows PC & Laptop -->
+    <div class="ts-category">
+      <div class="ts-cat-header">
+        <div class="ts-cat-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <div>
+          <div class="ts-cat-label">Windows PC &amp; Laptop</div>
+        </div>
+      </div>
+      <ul class="ts-list">
+        <li>
+          <span class="ts-num">01</span>
+          <div>
+            <strong>Virus, Malware &amp; Spyware Removal</strong>
+            <p>Complete cleanup of infections, ransomware traces and unwanted software — your system restored to a safe, clean state.</p>
+          </div>
+        </li>
+        <li>
+          <span class="ts-num">02</span>
+          <div>
+            <strong>Speed Optimization &amp; Tune-Up</strong>
+            <p>Slow computer driving you crazy? We diagnose and fix the root cause — whether it's software bloat, a failing drive or not enough RAM.</p>
+          </div>
+        </li>
+        <li>
+          <span class="ts-num">03</span>
+          <div>
+            <strong>HDD → SSD Upgrade</strong>
+            <p>The single most impactful upgrade for an aging PC. We clone your data and replace the drive — your computer feels brand new.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- CAT 2: Home Network & WiFi -->
+    <div class="ts-category">
+      <div class="ts-cat-header">
+        <div class="ts-cat-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
+        </div>
+        <div>
+          <div class="ts-cat-label">Home Network &amp; WiFi</div>
+        </div>
+      </div>
+      <ul class="ts-list">
+        <li>
+          <span class="ts-num">04</span>
+          <div>
+            <strong>WiFi Optimization &amp; Dead Zone Fix</strong>
+            <p>Slow or spotty WiFi throughout your home? We optimize channels, bands and placement — or set up a mesh system for full coverage.</p>
+          </div>
+        </li>
+        <li>
+          <span class="ts-num">05</span>
+          <div>
+            <strong>Router &amp; Network Security Setup</strong>
+            <p>Many home networks in Costa Rica are left wide open. We secure yours: WPA3 encryption, strong passwords, firewall and access controls.</p>
+          </div>
+        </li>
+        <li>
+          <span class="ts-num">06</span>
+          <div>
+            <strong>VPN Setup &amp; Configuration</strong>
+            <p>Access content from your home country, protect your privacy and secure your connection — set up correctly on all your devices.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- CAT 3: Cloud & Productivity -->
+    <div class="ts-category">
+      <div class="ts-cat-header">
+        <div class="ts-cat-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
+        </div>
+        <div>
+          <div class="ts-cat-label">Cloud &amp; Productivity</div>
+        </div>
+      </div>
+      <ul class="ts-list">
+        <li>
+          <span class="ts-num">07</span>
+          <div>
+            <strong>Email, Calendar &amp; Contacts Setup</strong>
+            <p>Outlook, Gmail, Apple Mail — configured properly across all your devices so everything syncs and nothing gets lost.</p>
+          </div>
+        </li>
+        <li>
+          <span class="ts-num">08</span>
+          <div>
+            <strong>Cloud Backup &amp; File Sync</strong>
+            <p>OneDrive, iCloud, Google Drive or Dropbox — set up and running automatically so your files are always safe and accessible.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- CAT 4: iPhone & Mac -->
+    <div class="ts-category">
+      <div class="ts-cat-header">
+        <div class="ts-cat-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+        </div>
+        <div>
+          <div class="ts-cat-label">iPhone &amp; Mac</div>
+        </div>
+      </div>
+      <ul class="ts-list">
+        <li>
+          <span class="ts-num">09</span>
+          <div>
+            <strong>Apple ID Recovery &amp; iCloud Setup</strong>
+            <p>Locked out of your Apple ID? iCloud not syncing? We sort it out — accounts recovered, devices connected, backups running.</p>
+          </div>
+        </li>
+        <li>
+          <span class="ts-num">10</span>
+          <div>
+            <strong>Zoom, Teams &amp; Meet Setup</strong>
+            <p>Camera, microphone, screen sharing — everything working perfectly for your remote meetings on Mac, PC or iPhone.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+  </div><!-- end ts-grid -->
+
+  <div style="margin-top:48px; text-align:center;">
+    <p style="color:var(--text-muted); font-size:14px; margin-bottom:20px;">Don't see your issue? We cover 50+ services across all devices.</p>
+    <a href="#contact" class="btn-primary" style="display:inline-flex;">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92V19.92C22 20.48 21.55 21 21 21C10.34 21 2 12.66 2 2C2 1.45 2.52 1 3.08 1H6.09C6.59 1 7.04 1.35 7.09 1.85C7.31 3.56 7.76 5.22 8.41 6.77C8.58 7.18 8.47 7.65 8.14 7.93L6.62 9.45C7.88 12.24 10.76 15.12 13.55 16.38L15.07 14.86C15.35 14.53 15.82 14.42 16.23 14.59C17.78 15.24 19.44 15.69 21.15 15.91C21.65 15.96 22 16.42 22 16.92Z"/></svg>
+      Describe Your Problem
+    </a>
   </div>
 </section>
 
@@ -728,6 +950,7 @@
   </div>
   <div class="footer-links">
     <a href="#services">Services</a>
+    <a href="#top-services">Top 10</a>
     <a href="#faq">FAQ</a>
     <a href="#about">About</a>
     <a href="#contact">Contact</a>
