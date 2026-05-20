@@ -1,1 +1,758 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SolvIT CR — Bilingual IT Support for Expats in Costa Rica</title>
+<meta name="description" content="Professional bilingual IT support (English/Spanish) for expats in Costa Rica's GAM. On-site & remote. Escazú, Santa Ana, San José, Heredia, Alajuela." />
+<meta name="keywords" content="bilingual IT support Costa Rica, expat tech support San José, IT support Escazú, computer help Costa Rica, soporte técnico bilingüe" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --navy: #0b2540;
+    --navy-mid: #0f3460;
+    --green: #00c97a;
+    --green-dark: #00a362;
+    --white: #ffffff;
+    --off-white: #f4f7fb;
+    --text-muted: #8a9bb0;
+    --border: rgba(255,255,255,0.1);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--navy);
+    color: var(--white);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 6%;
+    background: rgba(11,37,64,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    animation: fadeDown 0.6s ease both;
+  }
+
+  .nav-logo {
+    display: flex; align-items: center; gap: 10px;
+    font-family: 'Syne', sans-serif; font-weight: 800; font-size: 20px;
+    text-decoration: none; color: var(--white);
+  }
+
+  .nav-logo span { color: var(--green); }
+
+  .logo-icon {
+    width: 34px; height: 34px; background: var(--green);
+    border-radius: 8px; display: flex; align-items: center; justify-content: center;
+  }
+
+  .logo-icon svg { width: 18px; height: 18px; }
+
+  .nav-links { display: flex; align-items: center; gap: 28px; }
+
+  .nav-links a {
+    color: var(--text-muted); text-decoration: none;
+    font-size: 14px; font-weight: 400;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--white); }
+
+  .nav-cta {
+    background: var(--green); color: var(--navy) !important;
+    font-weight: 500 !important; padding: 9px 20px;
+    border-radius: 50px; transition: background 0.2s !important;
+  }
+
+  .nav-cta:hover { background: var(--green-dark) !important; }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 120px 6% 80px;
+    position: relative; overflow: hidden;
+  }
+
+  .hero-grid {
+    position: absolute; inset: 0; opacity: 0.04;
+    background-image:
+      linear-gradient(var(--green) 1px, transparent 1px),
+      linear-gradient(90deg, var(--green) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  .hero-glow {
+    position: absolute; top: 20%; right: -10%;
+    width: 600px; height: 600px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(0,201,122,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(0,201,122,0.12); border: 1px solid rgba(0,201,122,0.3);
+    border-radius: 50px; padding: 6px 16px; margin-bottom: 28px;
+    font-size: 13px; color: var(--green); font-weight: 500;
+    animation: fadeUp 0.7s 0.2s ease both;
+  }
+
+  .hero-badge::before {
+    content: ''; width: 7px; height: 7px; border-radius: 50%;
+    background: var(--green); animation: pulse 2s infinite;
+  }
+
+  .hero h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(38px, 6vw, 72px);
+    font-weight: 800; line-height: 1.05;
+    max-width: 780px; margin-bottom: 24px;
+    animation: fadeUp 0.7s 0.35s ease both;
+  }
+
+  .hero h1 em { color: var(--green); font-style: normal; }
+
+  .hero p {
+    font-size: 18px; color: var(--text-muted);
+    max-width: 520px; line-height: 1.7;
+    margin-bottom: 40px; font-weight: 300;
+    animation: fadeUp 0.7s 0.5s ease both;
+  }
+
+  .hero-btns {
+    display: flex; gap: 14px; flex-wrap: wrap;
+    animation: fadeUp 0.7s 0.65s ease both;
+  }
+
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--green); color: var(--navy);
+    font-family: 'DM Sans', sans-serif; font-weight: 500;
+    font-size: 15px; padding: 14px 28px; border-radius: 50px;
+    text-decoration: none; transition: all 0.2s;
+  }
+
+  .btn-primary:hover { background: var(--green-dark); transform: translateY(-2px); }
+
+  .btn-outline {
+    display: inline-flex; align-items: center; gap: 8px;
+    border: 1px solid rgba(255,255,255,0.25); color: var(--white);
+    font-size: 15px; padding: 14px 28px; border-radius: 50px;
+    text-decoration: none; transition: all 0.2s;
+  }
+
+  .btn-outline:hover { border-color: var(--green); color: var(--green); }
+
+  .hero-zones {
+    margin-top: 60px;
+    display: flex; gap: 10px; flex-wrap: wrap; align-items: center;
+    animation: fadeUp 0.7s 0.8s ease both;
+  }
+
+  .hero-zones span { font-size: 12px; color: var(--text-muted); margin-right: 4px; }
+
+  .zone-tag {
+    background: rgba(255,255,255,0.06); border: 1px solid var(--border);
+    border-radius: 50px; padding: 5px 14px;
+    font-size: 12px; color: #c0cfe0;
+  }
+
+  /* ── TRUST STRIP ── */
+  .trust {
+    background: rgba(255,255,255,0.03);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 28px 6%;
+    display: flex; align-items: center; justify-content: center;
+    gap: 48px; flex-wrap: wrap;
+  }
+
+  .trust-item {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 14px; color: var(--text-muted);
+  }
+
+  .trust-item svg { color: var(--green); }
+
+  .trust-item strong { color: var(--white); font-weight: 500; }
+
+  /* ── SECTION BASE ── */
+  section { padding: 90px 6%; }
+
+  .section-label {
+    font-size: 12px; font-weight: 500; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--green);
+    margin-bottom: 14px;
+  }
+
+  .section-title {
+    font-family: 'Syne', sans-serif; font-size: clamp(28px, 4vw, 44px);
+    font-weight: 700; line-height: 1.15; max-width: 600px;
+    margin-bottom: 16px;
+  }
+
+  .section-sub {
+    font-size: 16px; color: var(--text-muted); max-width: 520px;
+    line-height: 1.7; margin-bottom: 56px; font-weight: 300;
+  }
+
+  /* ── SERVICES ── */
+  #services { background: var(--navy); }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+  }
+
+  .service-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--border);
+    border-radius: 16px; padding: 32px 28px;
+    transition: all 0.3s;
+    position: relative; overflow: hidden;
+  }
+
+  .service-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+    background: var(--green); transform: scaleX(0);
+    transform-origin: left; transition: transform 0.3s;
+  }
+
+  .service-card:hover { border-color: rgba(0,201,122,0.3); transform: translateY(-4px); }
+  .service-card:hover::before { transform: scaleX(1); }
+
+  .service-icon {
+    width: 48px; height: 48px; border-radius: 12px;
+    background: rgba(0,201,122,0.1); display: flex;
+    align-items: center; justify-content: center;
+    margin-bottom: 20px;
+  }
+
+  .service-icon svg { width: 24px; height: 24px; stroke: var(--green); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+
+  .service-card h3 {
+    font-family: 'Syne', sans-serif; font-size: 18px;
+    font-weight: 600; margin-bottom: 10px;
+  }
+
+  .service-card p { font-size: 14px; color: var(--text-muted); line-height: 1.65; }
+
+  /* ── PRICING ── */
+  #pricing { background: rgba(255,255,255,0.02); }
+
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px; align-items: start;
+  }
+
+  .pricing-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--border);
+    border-radius: 16px; padding: 32px 28px;
+    transition: all 0.3s;
+  }
+
+  .pricing-card.featured {
+    background: var(--green);
+    border-color: var(--green);
+  }
+
+  .pricing-card.featured h3,
+  .pricing-card.featured p,
+  .pricing-card.featured li,
+  .pricing-card.featured .price-sub { color: var(--navy) !important; }
+
+  .pricing-card.featured .price { color: var(--navy); }
+
+  .pricing-tag {
+    display: inline-block;
+    background: rgba(0,201,122,0.15); color: var(--green);
+    font-size: 11px; font-weight: 500; letter-spacing: 1px;
+    text-transform: uppercase; padding: 4px 12px;
+    border-radius: 50px; margin-bottom: 16px;
+  }
+
+  .pricing-card.featured .pricing-tag {
+    background: rgba(11,37,64,0.15); color: var(--navy);
+  }
+
+  .pricing-card h3 {
+    font-family: 'Syne', sans-serif; font-size: 20px;
+    font-weight: 700; margin-bottom: 6px;
+  }
+
+  .pricing-card p { font-size: 13px; color: var(--text-muted); margin-bottom: 20px; }
+
+  .price {
+    font-family: 'Syne', sans-serif; font-size: 40px;
+    font-weight: 800; color: var(--white);
+  }
+
+  .price sup { font-size: 20px; vertical-align: super; }
+  .price-sub { font-size: 13px; color: var(--text-muted); margin-bottom: 24px; margin-top: 2px; }
+
+  .pricing-divider { height: 1px; background: var(--border); margin: 20px 0; }
+  .pricing-card.featured .pricing-divider { background: rgba(11,37,64,0.2); }
+
+  .pricing-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+
+  .pricing-list li {
+    display: flex; align-items: flex-start; gap: 10px;
+    font-size: 13px; color: #c0cfe0; line-height: 1.4;
+  }
+
+  .pricing-list li::before {
+    content: '✓'; color: var(--green); font-weight: 700;
+    flex-shrink: 0; margin-top: 1px;
+  }
+
+  .pricing-card.featured .pricing-list li::before { color: var(--navy); }
+
+  /* ── ABOUT ── */
+  #about { background: var(--navy); }
+
+  .about-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 60px; align-items: center;
+  }
+
+  .about-stats {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 40px;
+  }
+
+  .stat-card {
+    background: rgba(255,255,255,0.04); border: 1px solid var(--border);
+    border-radius: 12px; padding: 20px;
+  }
+
+  .stat-num {
+    font-family: 'Syne', sans-serif; font-size: 32px;
+    font-weight: 800; color: var(--green);
+  }
+
+  .stat-label { font-size: 13px; color: var(--text-muted); margin-top: 4px; }
+
+  .about-right {
+    display: flex; flex-direction: column; gap: 16px;
+  }
+
+  .about-point {
+    display: flex; gap: 16px; align-items: flex-start;
+    background: rgba(255,255,255,0.03); border: 1px solid var(--border);
+    border-radius: 12px; padding: 20px;
+  }
+
+  .about-point-icon {
+    width: 40px; height: 40px; border-radius: 10px;
+    background: rgba(0,201,122,0.1); display: flex;
+    align-items: center; justify-content: center; flex-shrink: 0;
+  }
+
+  .about-point-icon svg { width: 20px; height: 20px; stroke: var(--green); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+
+  .about-point h4 {
+    font-family: 'Syne', sans-serif; font-size: 15px;
+    font-weight: 600; margin-bottom: 4px;
+  }
+
+  .about-point p { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+
+  /* ── CONTACT ── */
+  #contact { background: rgba(255,255,255,0.02); }
+
+  .contact-wrapper {
+    max-width: 860px; margin: 0 auto;
+  }
+
+  .contact-info {
+    display: grid; grid-template-columns: repeat(3,1fr); gap: 16px;
+    margin-bottom: 40px;
+  }
+
+  .contact-card {
+    background: rgba(255,255,255,0.04); border: 1px solid var(--border);
+    border-radius: 12px; padding: 20px; text-align: center;
+  }
+
+  .contact-card svg { width: 22px; height: 22px; stroke: var(--green); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; margin-bottom: 10px; }
+
+  .contact-card h4 { font-size: 13px; font-weight: 500; margin-bottom: 4px; }
+  .contact-card p { font-size: 12px; color: var(--text-muted); }
+
+  .form-container {
+    background: rgba(255,255,255,0.03); border: 1px solid var(--border);
+    border-radius: 20px; overflow: hidden;
+  }
+
+  .form-container iframe {
+    width: 100%; min-height: 620px; border: none; display: block;
+    background: transparent;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: rgba(0,0,0,0.3);
+    border-top: 1px solid var(--border);
+    padding: 40px 6%;
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 20px;
+  }
+
+  .footer-logo {
+    font-family: 'Syne', sans-serif; font-weight: 800; font-size: 18px;
+  }
+
+  .footer-logo span { color: var(--green); }
+
+  footer p { font-size: 13px; color: var(--text-muted); }
+
+  .footer-links { display: flex; gap: 20px; }
+
+  .footer-links a {
+    font-size: 13px; color: var(--text-muted);
+    text-decoration: none; transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--green); }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.8); }
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .about-grid { grid-template-columns: 1fr; gap: 40px; }
+    .contact-info { grid-template-columns: 1fr; }
+    .trust { gap: 24px; }
+    .hero h1 { font-size: 36px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <div class="logo-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="20 6 9 17 4 12"/>
+      </svg>
+    </div>
+    Solv<span>IT</span> CR
+  </a>
+  <div class="nav-links">
+    <a href="#services">Services</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#about">About</a>
+    <a href="#contact" class="nav-cta">Get Help</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-badge">🇺🇸 English · 🇨🇷 Español · Available Now</div>
+  <h1>Tech Support That <em>Actually Speaks</em> Your Language</h1>
+  <p>Professional bilingual IT support for expats in Costa Rica. On-site visits and remote help — no language barrier, no guesswork.</p>
+  <div class="hero-btns">
+    <a href="#contact" class="btn-primary">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92V19.92C22 20.48 21.55 21 21 21C10.34 21 2 12.66 2 2C2 1.45 2.52 1 3.08 1H6.09C6.59 1 7.04 1.35 7.09 1.85C7.31 3.56 7.76 5.22 8.41 6.77C8.58 7.18 8.47 7.65 8.14 7.93L6.62 9.45C7.88 12.24 10.76 15.12 13.55 16.38L15.07 14.86C15.35 14.53 15.82 14.42 16.23 14.59C17.78 15.24 19.44 15.69 21.15 15.91C21.65 15.96 22 16.42 22 16.92Z"/></svg>
+      Contact Us Now
+    </a>
+    <a href="#services" class="btn-outline">
+      View Services →
+    </a>
+  </div>
+  <div class="hero-zones">
+    <span>Coverage zones:</span>
+    <span class="zone-tag">Escazú</span>
+    <span class="zone-tag">Santa Ana</span>
+    <span class="zone-tag">San José</span>
+    <span class="zone-tag">Heredia</span>
+    <span class="zone-tag">Alajuela</span>
+  </div>
+</section>
+
+<!-- TRUST -->
+<div class="trust">
+  <div class="trust-item">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+    <div><strong>8+ Years</strong> Corporate IT Experience</div>
+  </div>
+  <div class="trust-item">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+    <div><strong>Same-Day</strong> Response Available</div>
+  </div>
+  <div class="trust-item">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+    <div><strong>Bilingual</strong> English & Spanish</div>
+  </div>
+  <div class="trust-item">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+    <div><strong>On-site</strong> & Remote Support</div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-label">What We Do</div>
+  <h2 class="section-title">Everything Your Tech Needs, Solved</h2>
+  <p class="section-sub">From setting up your home office to fixing critical issues — we handle it all in English, so nothing gets lost in translation.</p>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+      </div>
+      <h3>Computer & Laptop Repair</h3>
+      <p>Slow PC, viruses, blue screens, software crashes — diagnosed and fixed on-site or remotely. We speak your language, not tech jargon.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
+      </div>
+      <h3>Network & WiFi Setup</h3>
+      <p>Full home network setup, WiFi optimization, router configuration and secure networks for your house or home office.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <h3>Cybersecurity</h3>
+      <p>Antivirus setup, password management, VPN configuration, and security audits to keep your data and privacy safe.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
+      </div>
+      <h3>Cloud & Backup</h3>
+      <p>Google Workspace, Microsoft 365, OneDrive, iCloud — setup, migration and backup so you never lose your files again.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+      </div>
+      <h3>Phone & Tablet Help</h3>
+      <p>iOS and Android setup, data transfer, app troubleshooting and device optimization for smartphones and tablets.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      </div>
+      <h3>Ongoing Monthly Support</h3>
+      <p>Monthly plans for peace of mind — priority response, regular maintenance and a dedicated tech contact always ready for you.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing">
+  <div class="section-label">Transparent Pricing</div>
+  <h2 class="section-title">Clear USD Rates. No Surprises.</h2>
+  <p class="section-sub">All services quoted in USD. Fair rates positioned well below what you'd pay back home.</p>
+  <div class="pricing-grid">
+    <div class="pricing-card">
+      <div class="pricing-tag">Pay As You Go</div>
+      <h3>Remote Support</h3>
+      <p>Quick fixes from anywhere</p>
+      <div class="price"><sup>$</sup>35</div>
+      <div class="price-sub">per hour · USD</div>
+      <div class="pricing-divider"></div>
+      <ul class="pricing-list">
+        <li>Billed in 30-min increments</li>
+        <li>Screen sharing via secure link</li>
+        <li>Virus & malware removal</li>
+        <li>Software troubleshooting</li>
+        <li>Email & cloud setup</li>
+      </ul>
+    </div>
+    <div class="pricing-card">
+      <div class="pricing-tag">On-Site Visit</div>
+      <h3>Home Visit</h3>
+      <p>We come to you — GAM zones</p>
+      <div class="price"><sup>$</sup>75</div>
+      <div class="price-sub">flat fee · up to 1.5 hrs</div>
+      <div class="pricing-divider"></div>
+      <ul class="pricing-list">
+        <li>Escazú, Santa Ana, San José</li>
+        <li>Heredia & Alajuela coverage</li>
+        <li>Hardware diagnostics</li>
+        <li>Network & WiFi setup</li>
+        <li>+$35/hr after first 1.5 hrs</li>
+      </ul>
+    </div>
+    <div class="pricing-card featured">
+      <div class="pricing-tag">Most Popular</div>
+      <h3>Standard Plan</h3>
+      <p>Best value for expat homes</p>
+      <div class="price"><sup>$</sup>89</div>
+      <div class="price-sub">per month · USD</div>
+      <div class="pricing-divider"></div>
+      <ul class="pricing-list">
+        <li>2 hrs remote support/month</li>
+        <li>1 on-site visit included</li>
+        <li>Priority response time</li>
+        <li>Monthly security check</li>
+        <li>WhatsApp direct access</li>
+        <li>First month 20% off</li>
+      </ul>
+    </div>
+    <div class="pricing-card">
+      <div class="pricing-tag">Full Coverage</div>
+      <h3>Premium Plan</h3>
+      <p>Maximum peace of mind</p>
+      <div class="price"><sup>$</sup>149</div>
+      <div class="price-sub">per month · USD</div>
+      <div class="pricing-divider"></div>
+      <ul class="pricing-list">
+        <li>5 hrs remote support/month</li>
+        <li>2 on-site visits included</li>
+        <li>Same-day priority response</li>
+        <li>After-hours availability</li>
+        <li>Full device coverage</li>
+        <li>First month 20% off</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div>
+      <div class="section-label">Why SolvIT CR</div>
+      <h2 class="section-title">Corporate-Grade IT. Expat-Friendly Service.</h2>
+      <p style="color: var(--text-muted); line-height: 1.7; font-size: 15px; font-weight: 300;">
+        After 8+ years providing enterprise IT support at Applied Materials Costa Rica, I understand what reliable, professional tech support looks like — and I built SolvIT CR to bring that same standard to the expat community in the GAM.
+      </p>
+      <div class="about-stats">
+        <div class="stat-card">
+          <div class="stat-num">8+</div>
+          <div class="stat-label">Years corporate IT experience</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">100%</div>
+          <div class="stat-label">Bilingual English / Spanish</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">5</div>
+          <div class="stat-label">GAM zones covered</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">USD</div>
+          <div class="stat-label">All pricing in USD</div>
+        </div>
+      </div>
+    </div>
+    <div class="about-right">
+      <div class="about-point">
+        <div class="about-point-icon">
+          <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </div>
+        <div>
+          <h4>No Language Barrier</h4>
+          <p>Full support in English — explain your problem naturally and get clear answers back, no translation app needed.</p>
+        </div>
+      </div>
+      <div class="about-point">
+        <div class="about-point-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <div>
+          <h4>Fast & Reliable Response</h4>
+          <p>Same-day remote help for most issues. On-site visits scheduled within 24 hours across all GAM zones.</p>
+        </div>
+      </div>
+      <div class="about-point">
+        <div class="about-point-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div>
+          <h4>Corporate-Level Standards</h4>
+          <p>Enterprise IT background means your data, privacy, and devices are handled with professional-grade care.</p>
+        </div>
+      </div>
+      <div class="about-point">
+        <div class="about-point-icon">
+          <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        </div>
+        <div>
+          <h4>Priced for Expats</h4>
+          <p>USD rates well below what you'd pay back home — transparent pricing with no hidden fees or surprise charges.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-wrapper">
+    <div class="section-label">Get In Touch</div>
+    <h2 class="section-title">Ready to Solve Your Tech Problem?</h2>
+    <p class="section-sub">Fill out the form below and we'll get back to you within a few hours. WhatsApp preferred for urgent issues.</p>
+    <div class="contact-info">
+      <div class="contact-card">
+        <svg viewBox="0 0 24 24"><path d="M22 16.92V19.92C22 20.48 21.55 21 21 21C10.34 21 2 12.66 2 2C2 1.45 2.52 1 3.08 1H6.09C6.59 1 7.04 1.35 7.09 1.85C7.31 3.56 7.76 5.22 8.41 6.77C8.58 7.18 8.47 7.65 8.14 7.93L6.62 9.45C7.88 12.24 10.76 15.12 13.55 16.38L15.07 14.86C15.35 14.53 15.82 14.42 16.23 14.59C17.78 15.24 19.44 15.69 21.15 15.91C21.65 15.96 22 16.42 22 16.92Z"/></svg>
+        <h4>WhatsApp</h4>
+        <p>Fastest response channel</p>
+      </div>
+      <div class="contact-card">
+        <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        <h4>Email</h4>
+        <p>contact@solvitcr.com</p>
+      </div>
+      <div class="contact-card">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <h4>Response Time</h4>
+        <p>Within a few hours</p>
+      </div>
+    </div>
+    <div class="form-container">
+      <iframe src="https://forms.cloud.microsoft/r/qbsQhAfgMX" title="Contact SolvIT CR" allowfullscreen></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-logo">Solv<span>IT</span> CR</div>
+    <p style="margin-top: 6px;">Bilingual IT Support · Greater Metropolitan Area, Costa Rica</p>
+  </div>
+  <div class="footer-links">
+    <a href="#services">Services</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <p>© 2025 SolvIT CR · All rights reserved</p>
+</footer>
+
+</body>
+</html>
