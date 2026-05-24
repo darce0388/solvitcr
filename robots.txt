@@ -1,0 +1,16 @@
+# SolvIT CR — robots.txt
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://www.solvitcr.com/sitemap.xml
+
+# Block irrelevant crawlers
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: SemrushBot
+Crawl-delay: 10
+
+User-agent: MJ12bot
+Disallow: /
