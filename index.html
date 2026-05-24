@@ -6,7 +6,7 @@
 
 <!-- ═══ PRIMARY SEO ═══ -->
 <title>SolvIT CR | Bilingual IT Support Costa Rica · GAM · Escazú · San José · Heredia · Alajuela · Cartago</title>
-<meta name="description" content="Expert bilingual IT support (English & Spanish) across Costa Rica's GAM. On-site help in Escazú, Santa Ana, San José, Heredia, Alajuela, Cartago & 31 cantons. Remote support anywhere in Costa Rica. 10+ years experience. SINPE · PayPal · Bank Transfer."/>
+<meta name="description" content="Expert bilingual IT support (English & Spanish) across Costa Rica's GAM. On-site in San José, Heredia, Alajuela & Cartago. Remote support anywhere in Costa Rica. 10+ years experience. SINPE · PayPal · Bank Transfer."/>
 <meta name="keywords" content="bilingual IT support Costa Rica, soporte técnico bilingüe Costa Rica, IT support GAM Costa Rica, computer repair Escazú, tech support San José, soporte IT Heredia, IT help Alajuela, computer help Cartago, WiFi setup Costa Rica, cybersecurity Costa Rica, soporte remoto Costa Rica, IT support Santa Ana, tech support Desamparados, IT Moravia, soporte Curridabat, IT support Tibás, soporte Goicoechea, SINPE pago IT Costa Rica, PayPal IT support Costa Rica"/>
 <link rel="canonical" href="https://www.solvitcr.com/"/>
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"/>
@@ -89,7 +89,7 @@
       "@type": "FAQPage",
       "mainEntity": [
         {"@type":"Question","name":"Do you provide IT support in English and Spanish?","acceptedAnswer":{"@type":"Answer","text":"Yes — 100% bilingual. Full service in both English and Spanish. No translator needed."}},
-        {"@type":"Question","name":"Which areas in Costa Rica do you cover?","acceptedAnswer":{"@type":"Answer","text":"On-site support across the entire GAM (31 cantons including San José, Escazú, Santa Ana, Heredia, Alajuela, Cartago and more). Remote support available anywhere in Costa Rica."}},
+        {"@type":"Question","name":"Which areas in Costa Rica do you cover?","acceptedAnswer":{"@type":"Answer","text":"On-site support across the GAM — San José, Heredia, Alajuela and Cartago provinces. Remote support available anywhere in Costa Rica."}},
         {"@type":"Question","name":"How do I pay for IT support in Costa Rica?","acceptedAnswer":{"@type":"Answer","text":"We accept SINPE Móvil, bank transfer and PayPal. We work in both USD and colones."}},
         {"@type":"Question","name":"How quickly can you respond?","acceptedAnswer":{"@type":"Answer","text":"Most remote issues are resolved same day. On-site visits scheduled within 24 hours. WhatsApp is fastest for urgent needs."}}
       ]
@@ -628,6 +628,178 @@ footer p{font-size:.75rem;color:var(--slate)}
   .btn-p,.btn-g{font-size:.9rem;padding:13px 24px}
   .sw{padding:68px 5%}
 }
+
+/* ════════════════════════════
+   HERO CAROUSEL
+════════════════════════════ */
+.hero-carousel{position:relative;min-height:280px}
+.hc-slide{
+  position:absolute;top:0;left:0;width:100%;
+  opacity:0;transform:translateY(18px);
+  transition:opacity .55s ease,transform .55s ease;
+  pointer-events:none;
+}
+.hc-slide.active{
+  opacity:1;transform:none;
+  position:relative;pointer-events:auto;
+}
+.hc-dots{
+  display:flex;gap:8px;margin-top:28px;
+  margin-bottom:0;
+}
+.hc-dot{
+  width:8px;height:8px;border-radius:50%;
+  background:rgba(255,255,255,.2);border:none;
+  cursor:pointer;padding:0;transition:all .3s;
+}
+.hc-dot.active{
+  background:var(--lime);width:22px;border-radius:4px;
+}
+
+/* ════════════════════════════
+   STATS STRIP (ciberseguridad) — replaced by carousel below
+════════════════════════════ */
+#statsbar_OLD{
+  background:rgba(0,255,136,.04);
+  border-top:1px solid rgba(0,255,136,.12);
+  border-bottom:1px solid rgba(0,255,136,.12);
+  padding:36px 5%;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:0;
+  position:relative;z-index:1;
+}
+.sb-item{
+  text-align:center;padding:0 20px;
+  border-right:1px solid rgba(255,255,255,.06);
+}
+.sb-item:last-child{border-right:none}
+.sb-num{
+  font-family:'Bricolage Grotesque',sans-serif;
+  font-size:clamp(2rem,4vw,2.8rem);
+  font-weight:800;color:var(--lime);
+  line-height:1;margin-bottom:8px;
+}
+.sb-desc{font-size:.8rem;color:var(--slate-2);line-height:1.5}
+.sb-src{
+  font-size:.65rem;color:var(--slate);
+  margin-top:3px;
+}
+
+/* ════════════════════════════
+   PERFILES DE CLIENTE
+════════════════════════════ */
+#profiles{background:var(--ink-3)}
+.prof-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:14px;
+}
+.prof-card{
+  background:var(--mist);border:1px solid var(--line);
+  border-radius:var(--r);padding:26px;
+  transition:all .3s;cursor:default;
+}
+.prof-card:hover{
+  border-color:rgba(0,255,136,.25);
+  transform:translateY(-4px);
+  background:rgba(0,255,136,.025);
+}
+.prof-ico{font-size:2rem;margin-bottom:14px;line-height:1}
+.prof-tag{
+  display:inline-block;
+  font-size:.62rem;font-weight:700;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--lime);
+  background:rgba(0,255,136,.08);border-radius:50px;
+  padding:3px 10px;margin-bottom:12px;
+}
+.prof-card h3{
+  font-family:'Bricolage Grotesque',sans-serif;
+  font-size:.97rem;font-weight:700;margin-bottom:8px;
+}
+.prof-card p{font-size:.82rem;color:var(--slate-2);line-height:1.7;margin-bottom:16px}
+.prof-services{
+  font-size:.75rem;color:var(--slate);
+  border-top:1px solid var(--line);padding-top:12px;
+  line-height:1.6;
+}
+.prof-services strong{color:var(--slate-2)}
+
+/* ════════════════════════════
+   WA BUTTON PER SERVICE
+════════════════════════════ */
+.svc-wa{
+  display:inline-flex;align-items:center;gap:7px;
+  margin-top:16px;
+  background:#25D366;color:#fff;
+  font-family:'Instrument Sans',sans-serif;
+  font-size:.76rem;font-weight:700;
+  padding:7px 16px;border-radius:50px;
+  text-decoration:none;transition:all .2s;
+}
+.svc-wa:hover{background:#1ebe5d;transform:translateY(-1px)}
+.svc-wa svg{width:13px;height:13px;fill:white;flex-shrink:0}
+
+@media(max-width:640px){
+  #statsbar{grid-template-columns:1fr;gap:24px}
+  .sb-item{border-right:none;border-bottom:1px solid rgba(255,255,255,.06);padding-bottom:20px}
+  .sb-item:last-child{border-bottom:none}
+  .hero-carousel{min-height:320px}
+}
+
+
+/* ════════════════════════════
+   STATS CAROUSEL
+════════════════════════════ */
+#statsbar{
+  position:relative;
+  background:rgba(0,255,136,.04);
+  border-top:1px solid rgba(0,255,136,.12);
+  border-bottom:1px solid rgba(0,255,136,.12);
+  padding:36px 5% 48px;
+  overflow:hidden;
+}
+.sc-track{position:relative;min-height:90px}
+.sc-slide{
+  display:none;
+  grid-template-columns:1fr auto 1fr auto 1fr;
+  align-items:center;gap:0;
+  animation:scFadeIn .5s ease;
+}
+.sc-slide.active{display:grid}
+@keyframes scFadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.sb-divider{
+  width:1px;height:60px;
+  background:rgba(255,255,255,.06);
+  margin:0 32px;
+}
+.sb-item{text-align:center;padding:0 8px}
+.sb-num{
+  font-family:'Bricolage Grotesque',sans-serif;
+  font-size:clamp(1.8rem,3.5vw,2.6rem);
+  font-weight:800;color:var(--lime);
+  line-height:1;margin-bottom:8px;
+}
+.sb-desc{font-size:.78rem;color:var(--slate-2);line-height:1.55}
+.sb-src{font-size:.62rem;color:var(--slate);margin-top:5px;font-style:italic}
+.sc-nav{
+  display:flex;justify-content:center;gap:7px;
+  margin-top:22px;
+}
+.sc-dot{
+  width:7px;height:7px;border-radius:50%;
+  background:rgba(255,255,255,.18);
+  border:none;cursor:pointer;padding:0;
+  transition:all .3s;
+}
+.sc-dot.active{background:var(--lime);width:20px;border-radius:4px}
+
+@media(max-width:700px){
+  .sc-slide{grid-template-columns:1fr;gap:20px}
+  .sb-divider{width:100%;height:1px;margin:0}
+  .sc-slide.active{display:flex;flex-direction:column}
+}
+
 </style>
 </head>
 <body>
@@ -644,6 +816,7 @@ footer p{font-size:.75rem;color:var(--slate)}
   <div class="nav-links">
     <a href="#services" data-en="Services"   data-es="Servicios">Services</a>
     <a href="#top10"    data-en="Top 10"     data-es="Top 10">Top 10</a>
+    <a href="#profiles" data-en="Who We Help" data-es="¿Para quién?">Who We Help</a>
     <a href="#why"      data-en="Why Us"     data-es="Por qué">Why Us</a>
     <a href="#faq"      data-en="FAQ"        data-es="FAQ">FAQ</a>
     <a href="#about"    data-en="About"      data-es="Nosotros">About</a>
@@ -671,20 +844,88 @@ footer p{font-size:.75rem;color:var(--slate)}
       </span>
     </div>
 
-    <h1 class="hero-h1">
-      <span data-en="Bilingual IT Support<br><span class='grad'>That Actually Works</span><br>Across Costa Rica"
-            data-es="Soporte IT Bilingüe<br><span class='grad'>Que Realmente Funciona</span><br>en Todo el GAM">
-        Bilingual IT Support<br><span class="grad">That Actually Works</span><br>Across Costa Rica
-      </span>
-    </h1>
-
-    <p class="hero-sub">
-      <span data-en="Professional tech support in English &amp; Spanish — for homes and businesses across the GAM. On-site visits and same-day remote help, clearly communicated every step of the way."
-            data-es="Soporte técnico profesional en inglés y español — para hogares y empresas en el GAM. Visitas on-site y soporte remoto el mismo día, con comunicación clara en cada paso.">
-        Professional tech support in English &amp; Spanish — for homes and businesses across the GAM.
-        On-site visits and same-day remote help, clearly communicated every step of the way.
-      </span>
-    </p>
+    <!-- CAROUSEL HERO -->
+    <div class="hero-carousel" aria-live="polite" aria-atomic="true">
+      <div class="hc-slide active" data-slide="0">
+        <h1 class="hero-h1">
+          <span data-en="Your WiFi drops right when<br><span class='grad'>the meeting starts.</span>"
+                data-es="El WiFi se cae justo cuando<br><span class='grad'>empieza la reunión.</span>">
+            Your WiFi drops right when<br><span class="grad">the meeting starts.</span>
+          </span>
+        </h1>
+        <p class="hero-sub">
+          <span data-en="Working from home shouldn't mean losing clients. We fix WiFi, router and network issues — on-site across the GAM or remote, same day."
+                data-es="Trabajar desde casa no debería costar clientes. Resolvemos WiFi, router y red — on-site en el GAM o en remoto, el mismo día.">
+            Working from home shouldn't mean losing clients. We fix WiFi, router and network issues — on-site across the GAM or remote, same day.
+          </span>
+        </p>
+      </div>
+      <div class="hc-slide" data-slide="1">
+        <h1 class="hero-h1">
+          <span data-en="Your computer is slow.<br><span class='grad'>Really, painfully slow.</span>"
+                data-es="Tu computadora va lenta.<br><span class='grad'>Muy, muy lenta.</span>">
+            Your computer is slow.<br><span class="grad">Really, painfully slow.</span>
+          </span>
+        </h1>
+        <p class="hero-sub">
+          <span data-en="A slow PC kills productivity. We diagnose the real cause — viruses, failing drive, old hardware — and fix it fast, in the language you prefer."
+                data-es="Una PC lenta mata la productividad. Diagnosticamos la causa real — virus, disco fallando, hardware viejo — y lo resolvemos rápido, en el idioma que preferís.">
+            A slow PC kills productivity. We diagnose the real cause — viruses, failing drive, old hardware — and fix it fast, in the language you prefer.
+          </span>
+        </p>
+      </div>
+      <div class="hc-slide" data-slide="2">
+        <h1 class="hero-h1">
+          <span data-en="Someone just tried to<br><span class='grad'>scam you online.</span>"
+                data-es="Alguien acaba de intentar<br><span class='grad'>estafarte en línea.</span>">
+            Someone just tried to<br><span class="grad">scam you online.</span>
+          </span>
+        </h1>
+        <p class="hero-sub">
+          <span data-en="38 people fall victim to digital scams in Costa Rica every single day. We protect your devices, accounts and data before it happens — and clean up if it already did."
+                data-es="38 personas caen en estafas digitales en Costa Rica cada día. Protegemos tus dispositivos, cuentas y datos antes de que pase — y limpiamos si ya ocurrió.">
+            38 people fall victim to digital scams in Costa Rica every single day. We protect your devices, accounts and data before it happens — and clean up if it already did.
+          </span>
+        </p>
+      </div>
+      <div class="hc-slide" data-slide="3">
+        <h1 class="hero-h1">
+          <span data-en="Your home office setup<br><span class='grad'>isn't working right.</span>"
+                data-es="Tu home office<br><span class='grad'>no está funcionando bien.</span>">
+            Your home office setup<br><span class="grad">isn't working right.</span>
+          </span>
+        </h1>
+        <p class="hero-sub">
+          <span data-en="VPN that won't connect, Zoom camera not working, printer offline — we set up your full home office properly so your work never stops."
+                data-es="VPN que no conecta, cámara de Zoom sin funcionar, impresora offline — configuramos tu home office completo para que tu trabajo nunca se detenga.">
+            VPN that won't connect, Zoom camera not working, printer offline — we set up your full home office properly so your work never stops.
+          </span>
+        </p>
+      </div>
+      <div class="hc-slide" data-slide="4">
+        <h1 class="hero-h1">
+          <span data-en="Your iPhone is locked and<br><span class='grad'>you can't get back in.</span>"
+                data-es="Tu iPhone está bloqueado y<br><span class='grad'>no podés entrar.</span>">
+            Your iPhone is locked and<br><span class="grad">you can't get back in.</span>
+          </span>
+        </h1>
+        <p class="hero-sub">
+          <span data-en="Apple ID issues, iCloud full, data transfers — we speak Apple fluently. Your iPhone working perfectly in Costa Rica, without the headaches."
+                data-es="Problemas con Apple ID, iCloud lleno, transferencias de datos — hablamos Apple fluido. Tu iPhone funcionando perfecto en Costa Rica, sin dolores de cabeza.">
+            Apple ID issues, iCloud full, data transfers — we speak Apple fluently. Your iPhone working perfectly in Costa Rica, without the headaches.
+          </span>
+        </p>
+      </div>
+      <!-- dots -->
+      <div class="hc-dots" aria-hidden="true">
+        <button class="hc-dot active" data-dot="0"></button>
+        <button class="hc-dot" data-dot="1"></button>
+        <button class="hc-dot" data-dot="2"></button>
+        <button class="hc-dot" data-dot="3"></button>
+        <button class="hc-dot" data-dot="4"></button>
+      </div>
+    </div>
+    <!-- END CAROUSEL -->
 
     <div class="hero-btns">
       <a href="#contact" class="btn-p">
@@ -721,45 +962,99 @@ footer p{font-size:.75rem;color:var(--slate)}
 
     <div class="hero-coverage">
       <p class="cov-title"
-         data-en="📍 On-site coverage — GAM (31 cantons) · 📡 Remote — All Costa Rica"
-         data-es="📍 Cobertura on-site — GAM (31 cantones) · 📡 Remoto — Toda Costa Rica">
-        📍 On-site coverage — GAM (31 cantons) · 📡 Remote — All Costa Rica
+         data-en="📍 On-site: San José · Heredia · Alajuela · Cartago · 📡 Remote: All Costa Rica"
+         data-es="📍 On-site: San José · Heredia · Alajuela · Cartago · 📡 Remoto: Toda Costa Rica">
+        📍 On-site: San José · Heredia · Alajuela · Cartago · 📡 Remote: All Costa Rica
       </p>
       <div class="cov-grid">
-        <span class="cov-chip">San José</span>
-        <span class="cov-chip">Escazú</span>
-        <span class="cov-chip">Santa Ana</span>
-        <span class="cov-chip">Desamparados</span>
-        <span class="cov-chip">Aserrí</span>
-        <span class="cov-chip">Mora</span>
-        <span class="cov-chip">Goicoechea</span>
-        <span class="cov-chip">Alajuelita</span>
-        <span class="cov-chip">Vásquez de Coronado</span>
-        <span class="cov-chip">Tibás</span>
-        <span class="cov-chip">Moravia</span>
-        <span class="cov-chip">Montes de Oca</span>
-        <span class="cov-chip">Curridabat</span>
-        <span class="cov-chip">Alajuela</span>
-        <span class="cov-chip">Heredia</span>
-        <span class="cov-chip">Barva</span>
-        <span class="cov-chip">Santo Domingo</span>
-        <span class="cov-chip">Santa Bárbara</span>
-        <span class="cov-chip">San Rafael</span>
-        <span class="cov-chip">San Isidro</span>
-        <span class="cov-chip">Belén</span>
-        <span class="cov-chip">Flores</span>
-        <span class="cov-chip">San Pablo</span>
-        <span class="cov-chip">Cartago</span>
-        <span class="cov-chip">Paraíso</span>
-        <span class="cov-chip">La Unión</span>
-        <span class="cov-chip">Oreamuno</span>
-        <span class="cov-chip">El Guarco</span>
+        <span class="cov-chip">🏙️ San José</span>
+        <span class="cov-chip">🌿 Heredia</span>
+        <span class="cov-chip">☕ Alajuela</span>
+        <span class="cov-chip">⛰️ Cartago</span>
         <span class="cov-chip remote" data-en="📡 Remote: All Costa Rica" data-es="📡 Remoto: Toda Costa Rica">📡 Remote: All Costa Rica</span>
       </div>
     </div>
 
   </div>
 </section>
+
+<!-- ════════════ STATS CAROUSEL ════════════ -->
+<div id="statsbar" role="complementary" aria-label="IT statistics Costa Rica">
+
+  <!-- slides -->
+  <div class="sc-track">
+
+    <div class="sc-slide active">
+      <div class="sb-item">
+        <div class="sb-num">+13,600</div>
+        <div class="sb-desc" data-en="Projected cyber fraud cases<br>in Costa Rica for 2025 — double 2024" data-es="Casos de fraude digital proyectados<br>en CR para 2025 — el doble de 2024">Projected cyber fraud cases<br>in Costa Rica for 2025 — double 2024</div>
+        <div class="sb-src">OIJ / El Financiero CR · 2025</div>
+      </div>
+      <div class="sb-divider"></div>
+      <div class="sb-item">
+        <div class="sb-num">+668%</div>
+        <div class="sb-desc" data-en="Growth in online banking fraud<br>in Costa Rica (2020 → 2024)" data-es="Crecimiento del fraude bancario<br>online en CR (2020 → 2024)">Growth in online banking fraud<br>in Costa Rica (2020 → 2024)</div>
+        <div class="sb-src">OIJ · State of Cybersecurity CR 2025</div>
+      </div>
+      <div class="sb-divider"></div>
+      <div class="sb-item">
+        <div class="sb-num">#4</div>
+        <div class="sb-desc" data-en="Costa Rica ranks as the 4th least<br>cybersecure country in the world" data-es="Costa Rica es el 4º país menos<br>ciberseguro del mundo">Costa Rica ranks as the 4th least<br>cybersecure country in the world</div>
+        <div class="sb-src">ProxyRack Cybersecurity Rankings · 2025</div>
+      </div>
+    </div>
+
+    <div class="sc-slide">
+      <div class="sb-item">
+        <div class="sb-num">112K</div>
+        <div class="sb-desc" data-en="Fraud and cybercrime complaints<br>filed in Costa Rica in 2025" data-es="Denuncias por fraude y ciberdelitos<br>en Costa Rica durante 2025">Fraud and cybercrime complaints<br>filed in Costa Rica in 2025</div>
+        <div class="sb-src">OIJ / Centroamérica 360 · Jan 2026</div>
+      </div>
+      <div class="sb-divider"></div>
+      <div class="sb-item">
+        <div class="sb-num">+182%</div>
+        <div class="sb-desc" data-en="Increase in digital fraud<br>in Costa Rica during 2025" data-es="Aumento del fraude digital<br>en Costa Rica durante 2025">Increase in digital fraud<br>in Costa Rica during 2025</div>
+        <div class="sb-src">AppGate Fraud Beat 2026 / Bloomberg</div>
+      </div>
+      <div class="sb-divider"></div>
+      <div class="sb-item">
+        <div class="sb-num">79%</div>
+        <div class="sb-desc" data-en="Of all cybercrimes happen<br>right here — in the GAM" data-es="De todos los ciberdelitos ocurren<br>aquí mismo — en el GAM">Of all cybercrimes happen<br>right here — in the GAM</div>
+        <div class="sb-src">UNA LabCIBE · State of Cybersecurity CR 2025</div>
+      </div>
+    </div>
+
+    <div class="sc-slide">
+      <div class="sb-item">
+        <div class="sb-num">29.1M</div>
+        <div class="sb-desc" data-en="Cyberattack attempts against<br>Costa Rica in the first half of 2025" data-es="Intentos de ciberataque contra<br>Costa Rica en el primer semestre de 2025">Cyberattack attempts against<br>Costa Rica in the first half of 2025</div>
+        <div class="sb-src">CRC 891 / Cybercrime Report · 2025</div>
+      </div>
+      <div class="sb-divider"></div>
+      <div class="sb-item">
+        <div class="sb-num">86%</div>
+        <div class="sb-desc" data-en="Of cybercrime victims are<br>ages 18–64 — the active workforce" data-es="De las víctimas de ciberdelitos<br>tienen entre 18 y 64 años">Of cybercrime victims are<br>ages 18–64 — the active workforce</div>
+        <div class="sb-src">UNA / Monumental · April 2026</div>
+      </div>
+      <div class="sb-divider"></div>
+      <div class="sb-item">
+        <div class="sb-num">50K+</div>
+        <div class="sb-desc" data-en="Expats and digital nomads<br>living and working in Costa Rica" data-es="Expats y nómadas digitales<br>viviendo y trabajando en Costa Rica">Expats and digital nomads<br>living and working in Costa Rica</div>
+        <div class="sb-src">Support Adventure / CRIE · 2025</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- nav dots -->
+  <div class="sc-nav" aria-hidden="true">
+    <button class="sc-dot active" data-sc="0"></button>
+    <button class="sc-dot" data-sc="1"></button>
+    <button class="sc-dot" data-sc="2"></button>
+  </div>
+
+</div>
+
 
 <!-- ════════════ PAY BAR ════════════ -->
 <div id="paybar" role="complementary" aria-label="Payment methods">
@@ -800,58 +1095,88 @@ footer p{font-size:.75rem;color:var(--slate)}
     </p>
     <div class="svc-grid">
 
+      <!-- 1. Escudo Digital -->
       <div class="svc-card rv">
-        <div class="svc-ico"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
-        <h3 data-en="Computer &amp; Laptop Repair" data-es="Reparación de Computadoras">Computer &amp; Laptop Repair</h3>
-        <p data-en="Slow PC, viruses, blue screens, software crashes — diagnosed and fixed on-site or remotely. Clear explanations, zero jargon."
-           data-es="PC lento, virus, pantalla azul, crashes — diagnosticado y resuelto on-site o en remoto. Explicaciones claras, sin tecnicismos.">
-          Slow PC, viruses, blue screens, software crashes — diagnosed and fixed on-site or remotely. Clear explanations, zero jargon.
+        <div class="svc-ico"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <h3 data-en="Personal Digital Shield" data-es="Escudo Digital Personal">Personal Digital Shield</h3>
+        <p data-en="Viruses, scams, hackers — eliminated. Full malware removal, antivirus setup, firewall and account security review. We check if your accounts have already been compromised."
+           data-es="Virus, estafas, hackers — eliminados. Limpieza total de malware, antivirus, firewall y revisión de seguridad de cuentas. Verificamos si tus cuentas ya fueron comprometidas.">
+          Viruses, scams, hackers — eliminated. Full malware removal, antivirus setup, firewall and account security review. We check if your accounts have already been compromised.
         </p>
+        <a href="https://wa.me/50686300037?text=Hi%20SolvIT%20CR!%20I%20need%20help%20with%20cybersecurity%20%2F%20virus%20removal." class="svc-wa" target="_blank" rel="noopener">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          <span data-en="WhatsApp for this service" data-es="WhatsApp por este servicio">WhatsApp for this service</span>
+        </a>
       </div>
 
+      <!-- 2. WiFi que Sí Funciona -->
       <div class="svc-card rv d1">
         <div class="svc-ico"><svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg></div>
-        <h3 data-en="Network &amp; WiFi Setup" data-es="Redes y WiFi">Network &amp; WiFi Setup</h3>
-        <p data-en="Full home network setup, WiFi optimization, router configuration and secure networks for your home or office across the GAM."
-           data-es="Configuración completa de red, optimización de WiFi, router y redes seguras para tu casa u oficina en el GAM.">
-          Full home network setup, WiFi optimization, router configuration and secure networks for your home or office across the GAM.
+        <h3 data-en="WiFi That Actually Works" data-es="WiFi que Sí Funciona">WiFi That Actually Works</h3>
+        <p data-en="Speed and coverage diagnosis, channel optimization, router setup or mesh system install. Stability testing for video calls. Never lose a meeting to bad internet again."
+           data-es="Diagnóstico de velocidad y cobertura, optimización de canales, configuración de router o instalación de mesh system. Prueba de estabilidad para videollamadas. Nunca más perdés una reunión por mala conexión.">
+          Speed and coverage diagnosis, channel optimization, router setup or mesh system install. Stability testing for video calls. Never lose a meeting to bad internet again.
         </p>
+        <a href="https://wa.me/50686300037?text=Hi%20SolvIT%20CR!%20I%20need%20help%20with%20my%20WiFi%20%2F%20home%20network." class="svc-wa" target="_blank" rel="noopener">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          <span data-en="WhatsApp for this service" data-es="WhatsApp por este servicio">WhatsApp for this service</span>
+        </a>
       </div>
 
+      <!-- 3. Tu PC/Mac Como Nuevo -->
       <div class="svc-card rv d2">
-        <div class="svc-ico"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-        <h3 data-en="Cybersecurity" data-es="Ciberseguridad">Cybersecurity</h3>
-        <p data-en="Antivirus setup, password management, VPN configuration and security audits to keep your data and devices safe in Costa Rica."
-           data-es="Antivirus, gestión de contraseñas, VPN y auditorías de seguridad para proteger tus datos y dispositivos en Costa Rica.">
-          Antivirus setup, password management, VPN configuration and security audits to keep your data and devices safe in Costa Rica.
+        <div class="svc-ico"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+        <h3 data-en="Your PC / Mac Like New" data-es="Tu PC / Mac Como Nuevo">Your PC / Mac Like New</h3>
+        <p data-en="Full hardware and software diagnostic, virus cleanup, OS updates and driver optimization. HDD to SSD upgrade available — the most impactful change for a slow computer."
+           data-es="Diagnóstico completo de hardware y software, limpieza de virus, actualización del sistema y drivers. Upgrade de HDD a SSD disponible — el cambio más impactante para una computadora lenta.">
+          Full hardware and software diagnostic, virus cleanup, OS updates and driver optimization. HDD to SSD upgrade available — the most impactful change for a slow computer.
         </p>
+        <a href="https://wa.me/50686300037?text=Hi%20SolvIT%20CR!%20My%20computer%20is%20slow%20and%20I%20need%20help%20speeding%20it%20up." class="svc-wa" target="_blank" rel="noopener">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          <span data-en="WhatsApp for this service" data-es="WhatsApp por este servicio">WhatsApp for this service</span>
+        </a>
       </div>
 
+      <!-- 4. Home Office Pro -->
       <div class="svc-card rv d3">
-        <div class="svc-ico"><svg viewBox="0 0 24 24"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg></div>
-        <h3 data-en="Cloud &amp; Backup" data-es="Nube y Backup">Cloud &amp; Backup</h3>
-        <p data-en="Google Workspace, Microsoft 365, OneDrive, iCloud — setup, migration and automated backup so you never lose important files again."
-           data-es="Google Workspace, Microsoft 365, OneDrive, iCloud — configuración, migración y backup automático para que nunca pierdas archivos importantes.">
-          Google Workspace, Microsoft 365, OneDrive, iCloud — setup, migration and automated backup so you never lose important files again.
+        <div class="svc-ico"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+        <h3 data-en="Home Office Pro Setup" data-es="Home Office Pro">Home Office Pro Setup</h3>
+        <p data-en="VPN, Zoom/Teams/Meet, printer, external monitors, corporate email — your complete remote work setup configured and working from day one in Costa Rica."
+           data-es="VPN, Zoom/Teams/Meet, impresora, monitores externos, correo corporativo — tu home office completo configurado y funcionando desde el primer día en Costa Rica.">
+          VPN, Zoom/Teams/Meet, printer, external monitors, corporate email — your complete remote work setup configured and working from day one in Costa Rica.
         </p>
+        <a href="https://wa.me/50686300037?text=Hi%20SolvIT%20CR!%20I%20need%20help%20setting%20up%20my%20home%20office%20in%20Costa%20Rica." class="svc-wa" target="_blank" rel="noopener">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          <span data-en="WhatsApp for this service" data-es="WhatsApp por este servicio">WhatsApp for this service</span>
+        </a>
       </div>
 
+      <!-- 5. Backup & Nube Segura -->
       <div class="svc-card rv d4">
-        <div class="svc-ico"><svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
-        <h3 data-en="Phone &amp; Tablet Help" data-es="Celular y Tablet">Phone &amp; Tablet Help</h3>
-        <p data-en="iOS and Android setup, data transfer, app troubleshooting and full device optimization for smartphones and tablets."
-           data-es="Setup de iOS y Android, transferencia de datos, troubleshooting de apps y optimización completa de smartphones y tablets.">
-          iOS and Android setup, data transfer, app troubleshooting and full device optimization for smartphones and tablets.
+        <div class="svc-ico"><svg viewBox="0 0 24 24"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg></div>
+        <h3 data-en="Secure Backup &amp; Cloud" data-es="Backup &amp; Nube Segura">Secure Backup &amp; Cloud</h3>
+        <p data-en="iCloud, Google Drive, OneDrive, Time Machine — properly configured and running automatically. Your photos, documents and files always safe, never lost. Data recovery available."
+           data-es="iCloud, Google Drive, OneDrive, Time Machine — correctamente configurados y corriendo automáticamente. Tus fotos, documentos y archivos siempre seguros, nunca perdidos. Recuperación de datos disponible.">
+          iCloud, Google Drive, OneDrive, Time Machine — properly configured and running automatically. Your photos, documents and files always safe, never lost. Data recovery available.
         </p>
+        <a href="https://wa.me/50686300037?text=Hi%20SolvIT%20CR!%20I%20need%20help%20with%20cloud%20backup%20and%20file%20security." class="svc-wa" target="_blank" rel="noopener">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          <span data-en="WhatsApp for this service" data-es="WhatsApp por este servicio">WhatsApp for this service</span>
+        </a>
       </div>
 
+      <!-- 6. iPhone Sin Estrés -->
       <div class="svc-card rv d5">
-        <div class="svc-ico"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-        <h3 data-en="Monthly Support Plans" data-es="Planes Mensuales de Soporte">Monthly Support Plans</h3>
-        <p data-en="Priority response, regular maintenance and a dedicated bilingual tech contact — always ready when you need us anywhere in the GAM."
-           data-es="Respuesta prioritaria, mantenimiento regular y contacto técnico bilingüe dedicado — siempre disponible cuando nos necesitás en el GAM.">
-          Priority response, regular maintenance and a dedicated bilingual tech contact — always ready when you need us anywhere in the GAM.
+        <div class="svc-ico"><svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
+        <h3 data-en="iPhone Without the Headaches" data-es="iPhone Sin Estrés">iPhone Without the Headaches</h3>
+        <p data-en="Apple ID recovery, iCloud management, corporate apps, VPN on iPhone and device-to-device transfers. Your iPhone working perfectly in Costa Rica."
+           data-es="Recuperación de Apple ID, gestión de iCloud, apps corporativas, VPN en iPhone y transferencia entre dispositivos. Tu iPhone funcionando perfecto en Costa Rica.">
+          Apple ID recovery, iCloud management, corporate apps, VPN on iPhone and device-to-device transfers. Your iPhone working perfectly in Costa Rica.
         </p>
+        <a href="https://wa.me/50686300037?text=Hi%20SolvIT%20CR!%20I%20need%20help%20with%20my%20iPhone%20or%20Apple%20device." class="svc-wa" target="_blank" rel="noopener">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          <span data-en="WhatsApp for this service" data-es="WhatsApp por este servicio">WhatsApp for this service</span>
+        </a>
       </div>
 
     </div>
@@ -1009,6 +1334,97 @@ footer p{font-size:.75rem;color:var(--slate)}
   </div>
 </section>
 
+<!-- ════════════ PERFILES ════════════ -->
+<section id="profiles" aria-labelledby="prof-h">
+  <div class="sw wrap">
+    <div class="eyebrow rv" data-en="Who We Help" data-es="A quién ayudamos">Who We Help</div>
+    <h2 class="sh2 rv d1" id="prof-h">
+      <span data-en="Tech problems don't discriminate.<br><em>Neither do we.</em>"
+            data-es="Los problemas tecnológicos no distinguen.<br><em>Nosotros tampoco.</em>">
+        Tech problems don't discriminate.<br><em>Neither do we.</em>
+      </span>
+    </h2>
+    <p class="slead rv d2">
+      <span data-en="Whether you moved here recently or you've lived here your whole life — if technology is making your day harder, we fix it."
+            data-es="Ya sea que llegaste recientemente o vivís aquí toda la vida — si la tecnología te está complicando el día, nosotros lo resolvemos.">
+        Whether you moved here recently or you've lived here your whole life — if technology is making your day harder, we fix it.
+      </span>
+    </p>
+    <div class="prof-grid">
+
+      <div class="prof-card rv">
+        <div class="prof-ico">🏖️</div>
+        <div class="prof-tag" data-en="Retiree / Pensioner" data-es="Retirado / Pensionado">Retiree / Pensioner</div>
+        <h3 data-en="Your computer, safe and fast — no tech knowledge needed." data-es="Tu computadora, segura y rápida — sin necesitar saber de tecnología.">Your computer, safe and fast — no tech knowledge needed.</h3>
+        <p data-en="Slow PC, online scams, confusing iPhone, printer that won't work — we explain everything clearly, in your language, at your pace."
+           data-es="PC lenta, estafas online, iPhone confuso, impresora que no anda — explicamos todo con claridad, en tu idioma, a tu ritmo.">
+          Slow PC, online scams, confusing iPhone, printer that won't work — we explain everything clearly, in your language, at your pace.
+        </p>
+        <div class="prof-services">
+          <strong data-en="Recommended:" data-es="Recomendado:">Recommended:</strong>
+          <span data-en=" Personal Digital Shield · Your PC/Mac Like New · iPhone Without Headaches"
+                data-es=" Escudo Digital · Tu PC/Mac Como Nuevo · iPhone Sin Estrés">
+            Personal Digital Shield · Your PC/Mac Like New · iPhone Without Headaches
+          </span>
+        </div>
+      </div>
+
+      <div class="prof-card rv d1">
+        <div class="prof-ico">💻</div>
+        <div class="prof-tag" data-en="Remote Worker / Digital Nomad" data-es="Teletrabajador / Nómada Digital">Remote Worker / Digital Nomad</div>
+        <h3 data-en="Reliable internet and a home office ready so your work never stops." data-es="Internet confiable y home office listo para que tu trabajo nunca se detenga.">Reliable internet and a home office ready so your work never stops.</h3>
+        <p data-en="Unstable WiFi, VPN that won't connect, Zoom that fails mid-meeting — your livelihood depends on technology working. We make sure it does."
+           data-es="WiFi inestable, VPN que no conecta, Zoom que falla en plena reunión — tu sustento depende de que la tecnología funcione. Nos aseguramos de que así sea.">
+          Unstable WiFi, VPN that won't connect, Zoom that fails mid-meeting — your livelihood depends on technology working. We make sure it does.
+        </p>
+        <div class="prof-services">
+          <strong data-en="Recommended:" data-es="Recomendado:">Recommended:</strong>
+          <span data-en=" WiFi That Works · Home Office Pro · Secure Backup"
+                data-es=" WiFi que Funciona · Home Office Pro · Backup Seguro">
+            WiFi That Works · Home Office Pro · Secure Backup
+          </span>
+        </div>
+      </div>
+
+      <div class="prof-card rv d2">
+        <div class="prof-ico">👨‍👩‍👧</div>
+        <div class="prof-tag" data-en="Family" data-es="Familia">Family</div>
+        <h3 data-en="A home network that connects the whole family, with security included." data-es="Red doméstica que conecta a toda la familia, con seguridad incluida.">A home network that connects the whole family, with security included.</h3>
+        <p data-en="Dead zones, slow Smart TV, unsafe network, photos without backup — we set up your entire digital home so every device works, everywhere."
+           data-es="Zonas sin señal, Smart TV lento, red insegura, fotos sin respaldo — configuramos tu hogar digital para que cada dispositivo funcione, en todos lados.">
+          Dead zones, slow Smart TV, unsafe network, photos without backup — we set up your entire digital home so every device works, everywhere.
+        </p>
+        <div class="prof-services">
+          <strong data-en="Recommended:" data-es="Recomendado:">Recommended:</strong>
+          <span data-en=" WiFi That Works · Secure Backup · Personal Digital Shield"
+                data-es=" WiFi que Funciona · Backup Seguro · Escudo Digital">
+            WiFi That Works · Secure Backup · Personal Digital Shield
+          </span>
+        </div>
+      </div>
+
+      <div class="prof-card rv d3">
+        <div class="prof-ico">🏢</div>
+        <div class="prof-tag" data-en="Small Business" data-es="Pequeño Negocio">Small Business</div>
+        <h3 data-en="Professional IT for your business in Costa Rica, with clear USD pricing." data-es="IT profesional para tu negocio en Costa Rica, con precios claros en USD.">Professional IT for your business in Costa Rica, with clear USD pricing.</h3>
+        <p data-en="Commercial network, business email, networked printers, security — everything running reliably so you can focus on your business, not your tech."
+           data-es="Red comercial, correo empresarial, impresoras en red, seguridad — todo funcionando de forma confiable para que te enfoques en tu negocio, no en tu tecnología.">
+          Commercial network, business email, networked printers, security — everything running reliably so you can focus on your business, not your tech.
+        </p>
+        <div class="prof-services">
+          <strong data-en="Recommended:" data-es="Recomendado:">Recommended:</strong>
+          <span data-en=" Business packages — contact us"
+                data-es=" Paquetes empresariales — consultanos">
+            Business packages — contact us
+          </span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
 <!-- ════════════ WHY ════════════ -->
 <section id="why" aria-labelledby="why-h">
   <div class="sw wrap">
@@ -1045,9 +1461,9 @@ footer p{font-size:.75rem;color:var(--slate)}
       <div class="why-card rv d2">
         <div class="why-num">03</div>
         <h3 data-en="On-Site Across the Full GAM" data-es="On-Site en Todo el GAM">On-Site Across the Full GAM</h3>
-        <p data-en="We visit anywhere in the GAM's 31 cantons. Remote support available anywhere in Costa Rica — same day."
-           data-es="Visitamos cualquier lugar de los 31 cantones del GAM. Soporte remoto disponible en toda Costa Rica — el mismo día.">
-          We visit anywhere in the GAM's 31 cantons. Remote support available anywhere in Costa Rica — same day.
+        <p data-en="On-site visits across the GAM — San José, Heredia, Alajuela and Cartago. Remote support anywhere in Costa Rica — same day."
+           data-es="Visitas on-site en el GAM — San José, Heredia, Alajuela y Cartago. Soporte remoto en toda Costa Rica — el mismo día.">
+          On-site visits across the GAM — San José, Heredia, Alajuela and Cartago. Remote support available anywhere in Costa Rica — same day.
         </p>
       </div>
       <div class="why-card rv d3">
@@ -1108,8 +1524,8 @@ footer p{font-size:.75rem;color:var(--slate)}
             <div class="stat-lbl" data-en="Fully Bilingual" data-es="100% Bilingüe">Fully Bilingual</div>
           </div>
           <div class="stat-box">
-            <div class="stat-val">31</div>
-            <div class="stat-lbl" data-en="GAM Cantons Covered" data-es="Cantones del GAM">GAM Cantons Covered</div>
+            <div class="stat-val">4</div>
+            <div class="stat-lbl" data-en="GAM Provinces" data-es="Provincias del GAM">GAM Provinces</div>
           </div>
           <div class="stat-box">
             <div class="stat-val">50+</div>
@@ -1130,8 +1546,8 @@ footer p{font-size:.75rem;color:var(--slate)}
           <div class="apt-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
           <div>
             <h4 data-en="Fast &amp; Reliable Response" data-es="Respuesta Rápida y Confiable">Fast &amp; Reliable Response</h4>
-            <p data-en="Same-day remote help for most issues. On-site visits across all 31 GAM cantons within 24 hours."
-               data-es="Soporte remoto el mismo día. Visitas on-site en los 31 cantones del GAM en menos de 24 horas.">Same-day remote help for most issues. On-site visits across all 31 GAM cantons within 24 hours.</p>
+            <p data-en="Same-day remote help for most issues. On-site visits across the GAM — San José, Heredia, Alajuela and Cartago — within 24 hours."
+               data-es="Soporte remoto el mismo día. Visitas on-site en el GAM — San José, Heredia, Alajuela y Cartago — en menos de 24 horas.">Same-day remote help for most issues. On-site visits across the GAM — San José, Heredia, Alajuela and Cartago — within 24 hours.</p>
           </div>
         </div>
         <div class="apt">
@@ -1192,8 +1608,8 @@ footer p{font-size:.75rem;color:var(--slate)}
           <span class="faq-ic" aria-hidden="true">+</span>
         </button>
         <div class="faq-a" role="region">
-          <span data-en="On-site support covers the entire GAM — all 31 cantons including San José, Escazú, Santa Ana, Desamparados, Heredia, Alajuela, Cartago, Curridabat, Moravia, Tibás, Goicoechea and more. Remote support is available immediately anywhere in Costa Rica."
-                data-es="El soporte on-site cubre todo el GAM — los 31 cantones incluyendo San José, Escazú, Santa Ana, Desamparados, Heredia, Alajuela, Cartago, Curridabat, Moravia, Tibás, Goicoechea y más. El soporte remoto está disponible de inmediato en cualquier parte de Costa Rica.">On-site support covers the entire GAM — all 31 cantons including San José, Escazú, Santa Ana, Desamparados, Heredia, Alajuela, Cartago, Curridabat, Moravia, Tibás, Goicoechea and more. Remote support is available immediately anywhere in Costa Rica.</span>
+          <span data-en="On-site support covers the entire GAM — San José, Heredia, Alajuela and Cartago provinces. Remote support is available immediately anywhere in Costa Rica."
+                data-es="El soporte on-site cubre todo el GAM — provincias de San José, Heredia, Alajuela y Cartago. El soporte remoto está disponible de inmediato en cualquier parte de Costa Rica.">On-site support covers the entire GAM — San José, Heredia, Alajuela and Cartago provinces. Remote support is available immediately anywhere in Costa Rica.</span>
         </div>
       </div>
 
@@ -1311,6 +1727,7 @@ footer p{font-size:.75rem;color:var(--slate)}
   <div class="foot-links">
     <a href="#services" data-en="Services"  data-es="Servicios">Services</a>
     <a href="#top10"    data-en="Top 10"    data-es="Top 10">Top 10</a>
+    <a href="#profiles" data-en="Who We Help" data-es="¿Para quién?">Who We Help</a>
     <a href="#why"      data-en="Why Us"    data-es="Por qué">Why Us</a>
     <a href="#faq"      data-en="FAQ"       data-es="FAQ">FAQ</a>
     <a href="#about"    data-en="About"     data-es="Nosotros">About</a>
@@ -1332,6 +1749,64 @@ footer p{font-size:.75rem;color:var(--slate)}
 <!-- ════════════ JS ════════════ -->
 <script>
 'use strict';
+
+/* ── STATS CAROUSEL ── */
+(function() {
+  var slides = document.querySelectorAll('.sc-slide');
+  var dots   = document.querySelectorAll('.sc-dot');
+  var cur = 0;
+  var t;
+  function goSc(n) {
+    slides[cur].classList.remove('active');
+    dots[cur].classList.remove('active');
+    cur = (n + slides.length) % slides.length;
+    slides[cur].classList.add('active');
+    dots[cur].classList.add('active');
+    if (typeof setLang === 'function') setLang(L);
+  }
+  dots.forEach(function(d) {
+    d.addEventListener('click', function() {
+      clearInterval(t);
+      goSc(parseInt(this.getAttribute('data-sc')));
+      t = setInterval(function(){ goSc(cur + 1); }, 6000);
+    });
+  });
+  t = setInterval(function(){ goSc(cur + 1); }, 6000);
+})();
+
+
+/* ── HERO CAROUSEL ── */
+(function() {
+  var slides = document.querySelectorAll('.hc-slide');
+  var dots   = document.querySelectorAll('.hc-dot');
+  var current = 0;
+  var timer;
+
+  function goTo(n) {
+    slides[current].classList.remove('active');
+    dots[current].classList.remove('active');
+    current = (n + slides.length) % slides.length;
+    slides[current].classList.add('active');
+    dots[current].classList.add('active');
+    // re-apply language to new active slide
+    if (typeof setLang === 'function') setLang(L);
+  }
+
+  function next() { goTo(current + 1); }
+
+  function startTimer() { timer = setInterval(next, 5000); }
+  function resetTimer()  { clearInterval(timer); startTimer(); }
+
+  dots.forEach(function(dot) {
+    dot.addEventListener('click', function() {
+      goTo(parseInt(this.getAttribute('data-dot')));
+      resetTimer();
+    });
+  });
+
+  startTimer();
+})();
+
 
 /* ── LANGUAGE ── */
 var L = 'en';
