@@ -7,6 +7,7 @@ description: How Claude went from a limited experiment for companies in 2023 to
 date: 2026-10-21
 lang: en
 image: /assets/img/uploads/Gemini_Generated_Image_bd7y7bbd7y7bbd7y.jpg
+image_alt: AI Changed in Three Years (and What You Should Watch Out For)
 cta: https://wa.me/50670334042?text=Hi%20Diego%2C%20I%20read%20your%20post%20about%20AI%20and%20I%20have%20a%20question
 ---
 I'll be honest with you: a good part of this website, the description of every service, and even the way I handle each new client were all built with help from artificial intelligence. Specifically Claude, the assistant made by Anthropic. So it felt right to make AI the topic of the first post on this blog.
