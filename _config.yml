@@ -1,0 +1,28 @@
+title: SolvIT CR
+description: Bilingual IT support (English/Spanish) for homes and businesses in Costa Rica's GAM — Escazú, Santa Ana, San José, Heredia, Alajuela.
+url: https://www.solvitcr.com
+baseurl: ""
+lang: en
+whatsapp: "50670334042"
+email: hello@solvitcr.com
+
+permalink: /blog/:title/
+markdown: kramdown
+timezone: America/Costa_Rica
+
+collections:
+  trabajos:
+    output: true
+    permalink: /trabajos/:title/
+
+defaults:
+  - scope: { path: "", type: posts }
+    values: { layout: post }
+  - scope: { path: "", type: trabajos }
+    values: { layout: trabajo }
+
+exclude:
+  - README.md
+  - .pages.yml
+  - .github
+  - .gitignore

@@ -1,0 +1,37 @@
+---
+layout: base
+---
+{%- assign es = false -%}{%- if page.lang == "es" -%}{%- assign es = true -%}{%- endif -%}
+<article class="wrap article">
+  <p class="kicker"><a href="/blog/">Blog</a> · <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%Y-%m-%d" }}</time></p>
+  <h1>{{ page.title }}</h1>
+  {%- if page.description %}<p class="lead">{{ page.description }}</p>{% endif %}
+  {%- if page.image %}
+  <img class="cover" src="{{ page.image | relative_url }}" alt="{{ page.image_alt | default: page.title | escape }}" loading="eager"/>
+  {%- endif %}
+  <div class="prose">
+    {{ content }}
+  </div>
+  <aside class="cta-box">
+    <p>{% if page.cta and page.cta != "" %}{{ page.cta }}{% elsif es %}¿Necesita ayuda con esto? Precio fijo, sin sorpresas, en español o inglés.{% else %}Need help with this? Fixed price, no surprises, in English.{% endif %}</p>
+    {%- capture wa_text -%}{% if es %}Hola SolvIT CR, leí "{{ page.title }}" y necesito ayuda.{% else %}Hi SolvIT CR, I read "{{ page.title }}" and need help.{% endif %}{%- endcapture -%}
+    <a class="btn" href="https://wa.me/{{ site.whatsapp }}?text={{ wa_text | url_encode }}" target="_blank" rel="noopener">WhatsApp</a>
+  </aside>
+</article>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": {{ page.title | jsonify }},
+  "description": {{ page.description | default: page.excerpt | strip_html | normalize_whitespace | truncate: 200 | jsonify }},
+  "inLanguage": {{ page.lang | default: site.lang | jsonify }},
+  "datePublished": "{{ page.date | date_to_xmlschema }}",
+  "dateModified": "{{ page.last_modified_at | default: page.date | date_to_xmlschema }}",
+  {%- if page.image %}
+  "image": {{ page.image | absolute_url | jsonify }},
+  {%- endif %}
+  "mainEntityOfPage": {{ page.url | absolute_url | jsonify }},
+  "author": { "@type": "Person", "name": "Diego Arce", "url": "https://www.solvitcr.com/#about" },
+  "publisher": { "@id": "https://www.solvitcr.com/#business", "@type": "LocalBusiness", "name": "SolvIT CR", "logo": { "@type": "ImageObject", "url": "https://www.solvitcr.com/logo.png" } }
+}
+</script>

@@ -1,0 +1,64 @@
+# Builds the site with the same Jekyll engine GitHub Pages uses, so a broken change is caught before it goes live.
+name: Build check
+on:
+  pull_request:
+  push:
+    branches-ignore: [main]
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Add test content (only inside this check, never published)
+        run: |
+          cat > _posts/2026-01-01-ci-test-post.md <<'MD'
+          ---
+          title: "CI test post: \"quotes\" & symbols"
+          description: Test description
+          date: 2026-01-01
+          lang: es
+          image: /og-image.png
+          ---
+          ## Heading
+
+          Body text with **bold**.
+          MD
+          cat > _trabajos/2026-01-01-ci-test-trabajo.md <<'MD'
+          ---
+          title: Test trabajo
+          description: Test summary
+          date: 2026-01-01
+          zona: Escazú
+          servicio: WiFi que Sí Funciona
+          lang: es
+          fotos:
+            - /og-image.png
+            - /logo.png
+          ---
+          Detalle.
+          MD
+          sed -i 's/^          //' _posts/2026-01-01-ci-test-post.md _trabajos/2026-01-01-ci-test-trabajo.md
+      - uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./
+          destination: ./_site
+      - name: Check key pages exist
+        run: |
+          fail=0
+          err(){ echo "::error::$1"; fail=1; }
+          for f in index.html blog/index.html trabajos/index.html sitemap.xml logo.png favicon.png og-image.png robots.txt CNAME googlecf5623d3b43c023f.html bc3f676288e54fc9b915742eda155dc3.txt blog/ci-test-post/index.html trabajos/ci-test-trabajo/index.html; do
+            test -f "_site/$f" || err "MISSING: $f"
+          done
+          cmp -s index.html _site/index.html && echo "::notice::Home page unchanged by build" || err "index.html changed by the build"
+          grep -q '"@type": "Article"' _site/blog/ci-test-post/index.html 2>/dev/null || err "Article schema missing"
+          python3 -c "import json,re;h=open('_site/blog/ci-test-post/index.html').read();json.loads(re.search(r'application/ld\+json\">(.*?)</script>',h,re.S).group(1))" 2>/dev/null || err "Article schema is not valid JSON"
+          python3 -c "import xml.dom.minidom;xml.dom.minidom.parse('_site/sitemap.xml')" 2>/dev/null || err "sitemap.xml is not valid XML"
+          echo "::notice::Sitemap URLs: $(grep -c '<loc>' _site/sitemap.xml) — files: $(cd _site && find . -type f | sort | tr '\n' ' ')"
+          exit $fail
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: site-preview
+          path: _site
+          retention-days: 3

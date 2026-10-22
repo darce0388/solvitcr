@@ -1,0 +1,23 @@
+---
+layout: base
+---
+{%- assign es = false -%}{%- if page.lang == "es" -%}{%- assign es = true -%}{%- endif -%}
+<article class="wrap article">
+  <p class="kicker"><a href="/trabajos/">{% if es %}Trabajos{% else %}Our Work{% endif %}</a>{% if page.zona %} · {{ page.zona }}{% endif %}{% if page.servicio %} · {{ page.servicio }}{% endif %}</p>
+  <h1>{{ page.title }}</h1>
+  {%- if page.description %}<p class="lead">{{ page.description }}</p>{% endif %}
+  {%- if page.fotos %}
+  <div class="gallery">
+    {%- for foto in page.fotos %}
+    <a href="{{ foto | relative_url }}" target="_blank" rel="noopener"><img src="{{ foto | relative_url }}" alt="{{ page.title | escape }} — {{ forloop.index }}" loading="lazy"/></a>
+    {%- endfor %}
+  </div>
+  {%- endif %}
+  <div class="prose">
+    {{ content }}
+  </div>
+  <aside class="cta-box">
+    <p>{% if es %}¿Tiene un problema parecido? Le doy precio fijo por WhatsApp.{% else %}Got a similar problem? Get a fixed quote on WhatsApp.{% endif %}</p>
+    <a class="btn" href="https://wa.me/{{ site.whatsapp }}" target="_blank" rel="noopener">WhatsApp</a>
+  </aside>
+</article>
