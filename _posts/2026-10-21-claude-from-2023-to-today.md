@@ -7,8 +7,8 @@ description: How Claude went from a limited experiment for companies in 2023 to
 date: 2026-10-21
 lang: en
 image: /assets/img/uploads/Gemini_Generated_Image_bd7y7bbd7y7bbd7y.jpg
-image_alt: AI Changed in Three Years (and What You Should Watch Out For)
-cta: https://wa.me/50670334042?text=Hi%20Diego%2C%20I%20read%20your%20post%20about%20AI%20and%20I%20have%20a%20question
+image_alt: SolvIT CR robot mascot on a home office desk at night, pointing at a glowing line that grows from a chat bubble into circuits and a security shield, with Costa Rica's Central Valley in the background
+cta: "Want to set up AI tools safely, or not sure if a message you got is real? Message me on WhatsApp, in English or Spanish."
 ---
 I'll be honest with you: a good part of this website, the description of every service, and even the way I handle each new client were all built with help from artificial intelligence. Specifically Claude, the assistant made by Anthropic. So it felt right to make AI the topic of the first post on this blog.
 
@@ -50,7 +50,7 @@ The same technology that helps us is also being used by scammers. The fake email
 
 Four basic rules:
 
-1. **Only download apps from the official source.** Claude is available at [claude.ai](http://claude.ai) and in the official Apple and Google app stores. There are fake copies out there that ask for payments or personal information.
+1. **Only download apps from the official source.** Claude is available at [claude.ai](https://claude.ai) and in the official Apple and Google app stores. There are fake copies out there that ask for payments or personal information.
 2. **Don't paste anything into an AI chat that you wouldn't hand to a stranger:** passwords, bank statements, or photos of your passport or residency card.
 3. **Be suspicious of urgency, even if the message is perfectly written.** Good English or good Spanish doesn't prove anything anymore.
 4. **Verify before you act.** If an AI tells you to change something on your computer or your router, check with someone who knows before you do it.
