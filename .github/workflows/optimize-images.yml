@@ -1,0 +1,69 @@
+# Compresses photos uploaded from the editor (Pages CMS) and removes their GPS/EXIF data,
+# then asks GitHub Pages to republish so the light versions go live.
+name: Optimize images
+on:
+  push:
+    branches: [main]
+    paths:
+      - "assets/img/uploads/**"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+
+concurrency:
+  group: optimize-images
+  cancel-in-progress: false
+
+jobs:
+  optimize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Find images changed in this push
+        id: changed
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] || [ "${{ github.event.before }}" = "0000000000000000000000000000000000000000" ]; then
+            files=$(git ls-files 'assets/img/uploads/*')
+          else
+            files=$(git diff --name-only --diff-filter=AM "${{ github.event.before }}" "${{ github.sha }}" -- 'assets/img/uploads/*')
+          fi
+          files=$(echo "$files" | grep -iE '\.(jpe?g|png|webp)$' || true)
+          echo "$files"
+          { echo "files<<EOF"; echo "$files"; echo "EOF"; } >> "$GITHUB_OUTPUT"
+
+      - uses: actions/setup-python@v5
+        if: steps.changed.outputs.files != ''
+        with:
+          python-version: "3.12"
+
+      - name: Compress and strip metadata
+        if: steps.changed.outputs.files != ''
+        run: |
+          pip install --quiet pillow
+          echo "${{ steps.changed.outputs.files }}" | tr '\n' '\0' | xargs -0 python .github/scripts/optimize_images.py
+
+      - name: Commit optimized images
+        id: commit
+        if: steps.changed.outputs.files != ''
+        run: |
+          if git diff --quiet; then echo "changed=false" >> "$GITHUB_OUTPUT"; exit 0; fi
+          git config user.name "solvit-image-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/img/uploads
+          git commit -m "Optimize uploaded images (resize, compress, remove GPS/EXIF)"
+          for i in 1 2 3; do
+            git pull --rebase --quiet origin main && git push --quiet origin HEAD:main && break
+            sleep 5
+          done
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+
+      - name: Republish site
+        if: steps.commit.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api -X POST "repos/${{ github.repository }}/pages/builds" || echo "::warning::Could not request a Pages rebuild; it will happen on the next change."
