@@ -1,0 +1,58 @@
+# Builds the site with the same Jekyll engine GitHub Pages uses, so a broken change is caught before it goes live.
+name: Build check
+on:
+  pull_request:
+  push:
+    branches-ignore: [main]
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Add test content (only inside this check, never published)
+        run: |
+          cat > _posts/2026-01-01-ci-test-post.md <<'MD'
+          ---
+          title: "CI test post: \"quotes\" & symbols"
+          description: Test description
+          date: 2026-01-01
+          lang: es
+          image: /og-image.png
+          ---
+          ## Heading
+
+          Body text with **bold**.
+          MD
+          cat > _trabajos/2026-01-01-ci-test-trabajo.md <<'MD'
+          ---
+          title: Test trabajo
+          description: Test summary
+          date: 2026-01-01
+          zona: Escazú
+          servicio: WiFi que Sí Funciona
+          lang: es
+          fotos:
+            - /og-image.png
+            - /logo.png
+          ---
+          Detalle.
+          MD
+          sed -i 's/^          //' _posts/2026-01-01-ci-test-post.md _trabajos/2026-01-01-ci-test-trabajo.md
+      - uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./
+          destination: ./_site
+      - name: Check key pages exist
+        run: |
+          for f in index.html blog/index.html trabajos/index.html sitemap.xml logo.png favicon.png og-image.png robots.txt CNAME googlecf5623d3b43c023f.html bc3f676288e54fc9b915742eda155dc3.txt; do
+            test -f "_site/$f" || { echo "MISSING: $f"; exit 1; }
+          done
+          test -f _site/blog/ci-test-post/index.html || { echo "MISSING blog post page"; ls -R _site/blog; exit 1; }
+          test -f _site/trabajos/test-trabajo/index.html || { echo "MISSING trabajo page"; ls -R _site/trabajos; exit 1; }
+          grep -q '"@type": "Article"' _site/blog/ci-test-post/index.html && echo "Article schema ✓"
+          python3 -c "import json,re;h=open('_site/blog/ci-test-post/index.html').read();json.loads(re.search(r'application/ld\+json\">(.*?)</script>',h,re.S).group(1));print('Schema JSON valid ✓')"
+          python3 -c "import xml.dom.minidom;xml.dom.minidom.parse('_site/sitemap.xml');print('Sitemap XML valid ✓')"
+          grep -c '<url>' _site/sitemap.xml
+          head -c 300 _site/sitemap.xml
+          cmp index.html _site/index.html && echo "Home page unchanged by build ✓"

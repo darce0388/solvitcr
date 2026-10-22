@@ -1,0 +1,26 @@
+---
+layout: base
+title: Blog — Tech Help for Life in Costa Rica
+description: Practical guides on scams, WiFi, home office and backups for foreigners and families living in Costa Rica. By SolvIT CR.
+permalink: /blog/
+---
+<section class="wrap">
+  <h1>Blog</h1>
+  <p class="lead">Practical tech guides for life in Costa Rica · Guías prácticas de tecnología para vivir en Costa Rica</p>
+  {%- if site.posts.size > 0 %}
+  <div class="cards">
+    {%- for post in site.posts %}
+    <a class="card" href="{{ post.url | relative_url }}">
+      {%- if post.image %}<img src="{{ post.image | relative_url }}" alt="" loading="lazy"/>{% endif %}
+      <div class="card-body">
+        <span class="tag">{{ post.lang | default: "en" | upcase }} · {{ post.date | date: "%Y-%m-%d" }}</span>
+        <h2>{{ post.title }}</h2>
+        <p>{{ post.description | default: post.excerpt | strip_html | truncate: 140 }}</p>
+      </div>
+    </a>
+    {%- endfor %}
+  </div>
+  {%- else %}
+  <p class="empty">First articles coming soon. · Pronto los primeros artículos.</p>
+  {%- endif %}
+</section>

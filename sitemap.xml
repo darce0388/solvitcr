@@ -1,13 +1,43 @@
+---
+layout: null
+---
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://www.solvitcr.com/</loc>
-    <lastmod>2026-05-23</lastmod>
+    <lastmod>{{ site.time | date: "%Y-%m-%d" }}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.solvitcr.com/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://www.solvitcr.com/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.solvitcr.com/"/>
   </url>
+  {%- if site.posts.size > 0 %}
+  <url>
+    <loc>https://www.solvitcr.com/blog/</loc>
+    <lastmod>{{ site.posts.first.date | date: "%Y-%m-%d" }}</lastmod>
+    <priority>0.7</priority>
+  </url>
+  {%- for post in site.posts %}
+  <url>
+    <loc>{{ post.url | absolute_url }}</loc>
+    <lastmod>{{ post.last_modified_at | default: post.date | date: "%Y-%m-%d" }}</lastmod>
+    <priority>0.8</priority>
+  </url>
+  {%- endfor %}
+  {%- endif %}
+  {%- if site.trabajos.size > 0 %}
+  <url>
+    <loc>https://www.solvitcr.com/trabajos/</loc>
+    <priority>0.6</priority>
+  </url>
+  {%- for t in site.trabajos %}
+  <url>
+    <loc>{{ t.url | absolute_url }}</loc>
+    <lastmod>{{ t.date | default: site.time | date: "%Y-%m-%d" }}</lastmod>
+    <priority>0.5</priority>
+  </url>
+  {%- endfor %}
+  {%- endif %}
 </urlset>

@@ -1,0 +1,27 @@
+---
+layout: base
+title: Our Work — Real IT Jobs in Costa Rica's GAM
+description: Real tech support jobs done by SolvIT CR in Escazú, Santa Ana, San José, Heredia and Alajuela — WiFi, backups, PCs, home office and more.
+permalink: /trabajos/
+---
+{%- assign trabajos = site.trabajos | sort: "date" | reverse -%}
+<section class="wrap">
+  <h1>Our Work · Trabajos</h1>
+  <p class="lead">Real jobs, real homes and businesses in the GAM · Trabajos reales en el GAM</p>
+  {%- if trabajos.size > 0 %}
+  <div class="cards">
+    {%- for t in trabajos %}
+    <a class="card" href="{{ t.url | relative_url }}">
+      {%- if t.fotos and t.fotos.first %}<img src="{{ t.fotos.first | relative_url }}" alt="" loading="lazy"/>{% endif %}
+      <div class="card-body">
+        <span class="tag">{% if t.zona %}{{ t.zona }}{% endif %}{% if t.servicio %} · {{ t.servicio }}{% endif %}</span>
+        <h2>{{ t.title }}</h2>
+        {%- if t.description %}<p>{{ t.description | truncate: 140 }}</p>{% endif %}
+      </div>
+    </a>
+    {%- endfor %}
+  </div>
+  {%- else %}
+  <p class="empty">Coming soon. · Pronto.</p>
+  {%- endif %}
+</section>

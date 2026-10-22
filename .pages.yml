@@ -1,0 +1,106 @@
+# Pages CMS configuration — https://pagescms.org/docs/
+media:
+  input: assets/img/uploads
+  output: /assets/img/uploads
+
+content:
+  - name: posts
+    label: Blog
+    type: collection
+    path: _posts
+    filename: "{year}-{month}-{day}-{primary}.md"
+    view:
+      fields: [title, lang, date]
+      primary: title
+      sort: [date, title]
+      default:
+        sort: date
+        order: desc
+    fields:
+      - name: title
+        label: Título
+        type: string
+        required: true
+      - name: description
+        label: Descripción (Google y redes, máx. 160 caracteres)
+        type: text
+        required: true
+      - name: date
+        label: Fecha
+        type: date
+        required: true
+      - name: lang
+        label: Idioma
+        type: select
+        default: en
+        options:
+          values: [en, es]
+      - name: image
+        label: Imagen de portada
+        type: image
+      - name: image_alt
+        label: Texto alternativo de la portada
+        type: string
+      - name: cta
+        label: Texto del llamado a WhatsApp (opcional)
+        type: string
+      - name: body
+        label: Contenido
+        type: rich-text
+
+  - name: trabajos
+    label: Trabajos (galería)
+    type: collection
+    path: _trabajos
+    filename: "{year}-{month}-{day}-{primary}.md"
+    view:
+      fields: [title, zona, servicio, date]
+      primary: title
+      default:
+        sort: date
+        order: desc
+    fields:
+      - name: title
+        label: Título del trabajo
+        type: string
+        required: true
+      - name: description
+        label: Resumen corto (qué se resolvió)
+        type: text
+      - name: date
+        label: Fecha
+        type: date
+        required: true
+      - name: zona
+        label: Zona
+        type: select
+        options:
+          values: [Escazú, Santa Ana, San José, Heredia, Alajuela, Remoto]
+      - name: servicio
+        label: Servicio
+        type: select
+        options:
+          values:
+            - Escudo Digital
+            - WiFi que Sí Funciona
+            - PC/Mac Como Nuevo
+            - Home Office Pro
+            - Backup & Nube
+            - iPhone Sin Estrés
+            - PYME
+      - name: lang
+        label: Idioma
+        type: select
+        default: es
+        options:
+          values: [es, en]
+      - name: fotos
+        label: Fotos
+        type: image
+        options:
+          multiple:
+            max: 12
+          extensions: [jpg, jpeg, png, webp]
+      - name: body
+        label: Detalle (opcional)
+        type: rich-text
