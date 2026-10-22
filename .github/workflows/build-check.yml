@@ -56,3 +56,9 @@ jobs:
           python3 -c "import xml.dom.minidom;xml.dom.minidom.parse('_site/sitemap.xml')" 2>/dev/null || err "sitemap.xml is not valid XML"
           echo "::notice::Sitemap URLs: $(grep -c '<loc>' _site/sitemap.xml) — files: $(cd _site && find . -type f | sort | tr '\n' ' ')"
           exit $fail
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: site-preview
+          path: _site
+          retention-days: 3
