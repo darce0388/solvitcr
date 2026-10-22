@@ -45,14 +45,14 @@ jobs:
           destination: ./_site
       - name: Check key pages exist
         run: |
-          for f in index.html blog/index.html trabajos/index.html sitemap.xml logo.png favicon.png og-image.png robots.txt CNAME googlecf5623d3b43c023f.html bc3f676288e54fc9b915742eda155dc3.txt; do
-            test -f "_site/$f" || { echo "MISSING: $f"; exit 1; }
+          fail=0
+          err(){ echo "::error::$1"; fail=1; }
+          for f in index.html blog/index.html trabajos/index.html sitemap.xml logo.png favicon.png og-image.png robots.txt CNAME googlecf5623d3b43c023f.html bc3f676288e54fc9b915742eda155dc3.txt blog/ci-test-post/index.html trabajos/ci-test-trabajo/index.html; do
+            test -f "_site/$f" || err "MISSING: $f"
           done
-          test -f _site/blog/ci-test-post/index.html || { echo "MISSING blog post page"; ls -R _site/blog; exit 1; }
-          test -f _site/trabajos/test-trabajo/index.html || { echo "MISSING trabajo page"; ls -R _site/trabajos; exit 1; }
-          grep -q '"@type": "Article"' _site/blog/ci-test-post/index.html && echo "Article schema ✓"
-          python3 -c "import json,re;h=open('_site/blog/ci-test-post/index.html').read();json.loads(re.search(r'application/ld\+json\">(.*?)</script>',h,re.S).group(1));print('Schema JSON valid ✓')"
-          python3 -c "import xml.dom.minidom;xml.dom.minidom.parse('_site/sitemap.xml');print('Sitemap XML valid ✓')"
-          grep -c '<url>' _site/sitemap.xml
-          head -c 300 _site/sitemap.xml
-          cmp index.html _site/index.html && echo "Home page unchanged by build ✓"
+          cmp -s index.html _site/index.html && echo "::notice::Home page unchanged by build" || err "index.html changed by the build"
+          grep -q '"@type": "Article"' _site/blog/ci-test-post/index.html 2>/dev/null || err "Article schema missing"
+          python3 -c "import json,re;h=open('_site/blog/ci-test-post/index.html').read();json.loads(re.search(r'application/ld\+json\">(.*?)</script>',h,re.S).group(1))" 2>/dev/null || err "Article schema is not valid JSON"
+          python3 -c "import xml.dom.minidom;xml.dom.minidom.parse('_site/sitemap.xml')" 2>/dev/null || err "sitemap.xml is not valid XML"
+          echo "::notice::Sitemap URLs: $(grep -c '<loc>' _site/sitemap.xml) — files: $(cd _site && find . -type f | sort | tr '\n' ' ')"
+          exit $fail
